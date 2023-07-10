@@ -21,6 +21,7 @@
   </head>
   <body>
   <?php $this->load->view("partials/header") ?>
+  <?php $this->load->view("partials/loader") ?>
 
   <section class="hero" style="width: 100%;height: 100vh">
 

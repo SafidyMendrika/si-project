@@ -1,6 +1,6 @@
 drop table user_detail;
 drop table wallet;
-drop table user;
+drop table users;
 drop table goal;
 drop table code;
 drop table pack_user;

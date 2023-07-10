@@ -25,6 +25,8 @@
 
 <body >
 <?php $this->load->view("partials/header") ?>
+<?php $this->load->view("partials/loader") ?>
+
 
 
 <main style="margin-top: 4%">
