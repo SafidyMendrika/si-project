@@ -100,7 +100,6 @@
         </div>
     </div>
 </main>
-
 <!-- MDB -->
 <script type="text/javascript" src="<?= base_url("assets/js/mdb.min.js") ?>"></script>
 
@@ -132,16 +131,8 @@
     form.addEventListener("submit",(e)=>{
         e.preventDefault();
 
-        let isValidate = true;
-
-        const forms = document.querySelectorAll('.needs-validation');
-
-        console.log(forms.length + " form");
-        console.log("val : "+ form.querySelectorAll(".was-validated").length)
-        if (forms.length == form.querySelectorAll(".was-validated").length){
-            console.log("zayy");
-        }else{
-            console.log("miandry");
+        if (form.checkValidity()){
+            login(form);
         }
     })
 </script>
