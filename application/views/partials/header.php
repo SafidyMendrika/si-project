@@ -56,6 +56,9 @@
                     <li class="nav-item" style="margin-left: 5%;padding: 3%">
                         <a href="<?= base_url("PackController/myPack") ?>" > Mes pack </a>
                     </li>
+                    <li class="nav-item" style="margin-left: 5%;padding: 3%">
+                        <a href="<?= base_url("UserController/code") ?>" > Code </a>
+                    </li>
                 <?php } ?>
 
             </ul>

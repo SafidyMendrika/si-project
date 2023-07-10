@@ -18,7 +18,7 @@ INSERT INTO wallet(id_user, value) VALUES
 (5, 0);
 
 INSERT INTO code (code, value, is_used, status) VALUES
-('123456789', 50000, 0, 0),
+('  ', 50000, 0, 0),
 ('987654321', 75000, 0, 10),
 ('147258369', 25000, 0, 0),
 ('369258147', 20000, 0, 20),

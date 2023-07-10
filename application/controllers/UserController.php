@@ -7,6 +7,7 @@ class UserController extends CI_Controller
         parent::__construct();
 
         $this->load->model('User');
+        $this->load->model('Code');
 
     }
     function index()
@@ -67,6 +68,12 @@ class UserController extends CI_Controller
     function profil()
     {
         $this->load->view("pages/profil");
+    }
+
+    function code()
+    {
+        $data["codes"] = $this->Code->findAll();
+        $this->load->view("pages/code",$data);
     }
 
 

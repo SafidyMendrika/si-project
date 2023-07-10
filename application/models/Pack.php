@@ -43,6 +43,10 @@ class Pack extends CI_Model{
 
         $detals = $usr->getDetals($id_user);
 
+        if ($detals == false){
+            return array();
+        }
+
         $list_simple = $this->listPackGoal($detals["id_goal"]);
 
         $kcal_goal = $this->convertKg($detals["weight_to_operate"]);
