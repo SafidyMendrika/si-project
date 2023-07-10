@@ -17,6 +17,7 @@ CREATE TABLE goal(
     description text,
     status integer
 );
+
 CREATE TABLE user_detail(
     id_user_detail SERIAL PRIMARY KEY,
     id_user integer REFERENCES users(id_user),
@@ -24,6 +25,12 @@ CREATE TABLE user_detail(
     age integer,
     weight_to_operate double precision,
     id_goal integer REFERENCES goal(id_goal)
+);
+
+CREATE TABLE wallet(
+    id_wallet SERIAL PRIMARY KEY,
+    id_user integer REFERENCES users(id_user),
+    value double precision
 );
 
 CREATE TABLE code(
@@ -50,6 +57,7 @@ CREATE TABLE activity(
 
 CREATE TABLE pack(
     id_pack SERIAL PRIMARY KEY,
+    id_goal integer REFERENCES goal(id_goal),
     label text,
     price double precision,
     remise double precision
