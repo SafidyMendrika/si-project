@@ -32,4 +32,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $this->db->query($sql);
         $this->db->query($sql2);
       }
+
     }
