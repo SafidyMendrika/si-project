@@ -81,7 +81,6 @@ $db['default'] = array(
 
     'password' => 'Tahiry1849',// local
 
-
     'database' => 'diettracker',// local
 
 	'dbdriver' => 'postgre',
