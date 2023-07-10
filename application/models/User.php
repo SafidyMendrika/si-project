@@ -39,8 +39,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
       }
 
+      function getDetals($id_user)
+      {
+        $q = $this->db->from("user_detail")->select("*")->where("id_user",$id_user)->get();
 
-
+        return $q->result_array()[0];
+      }
 
     }
 

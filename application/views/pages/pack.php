@@ -1,3 +1,7 @@
+<?php
+$this->load->model("Activity");
+$this->load->model("Menu");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,14 +29,7 @@
 <?php $this->load->view("partials/loader") ?>
 
 <main>
-    <?php
-    $lastID = -1;
-    $lastMenuID = -1;
-    $lastActivityID = -1;
-    ?>
     <?php foreach($packs as $pack){ ?>
-            <?php if ($pack["id_pack"] != $lastID){ ?>
-                <?php $lastID = $pack["id_pack"]; ?>
         <div class="card" style="width: 550px">
             <h5 class="card-header"><?= $pack["label"] ?></h5>
             <div class="card-body">
@@ -40,26 +37,16 @@
                 <div class="tab-content" id="ex1-content">
                     <div class="tab-pane fade show active" id="ex<?= $pack["id_pack"] ?>-pills-1" role="tabpanel" aria-labelledby="ex1-tab-1">
                         <ul>
-                            <?php foreach ($packs as $formenu){ ?>
-                                <?php if ($pack["id_pack"] == $formenu["id_pack"]){ ?>
-                                    <?php if ($formenu["id_menu"] != $lastMenuID){ ?>
-                                            <?php $lastMenuID = $formenu["id_menu"] ?>
-                                        <li><?= utf8_decode($formenu["menu"]) ?> (<?= $formenu["menukcal"] ?>  KCal)</li>
-                                    <?php } ?>
-                                <?php } ?>
-
+                            <?php foreach ($this->Menu->getByPack($pack["id_pack"]) as $menu){ ?>
+                                <li><?= $menu["menu"] ?> (<?= $menu["menukcal"] ?>  KCal)</li>
                             <?php } ?>
                         </ul>
                     </div>
                     <div class="tab-pane fade" id="ex<?= $pack["id_pack"] ?>-pills-2" role="tabpanel" aria-labelledby="ex1-tab-2">
-                        <?php foreach ($packs as $foractivity){ ?>
-                            <?php if ($pack["id_pack"] == $foractivity["id_pack"]){ ?>
-                                <?php if ($foractivity["id_activity"] != $lastActivityID){ ?>
-                                    <?php $lastActivityID = $foractivity["id_activity"]; ?>
-                                <li><?= utf8_decode($foractivity["activity"]) ?> (<?= $foractivity["activitykcal"] ?>  KCal)</li>
-                                <?php } ?>
-                            <?php } ?>
+                        <?php foreach ($this->Activity->getByPack($pack["id_pack"]) as $act){ ?>
+                            <li><?= $act["activity"] ?> (<?= $act["activitykcal"] ?>  KCal)</li>
                         <?php } ?>
+
                     </div>
                 </div>
                 <!-- Pills content -->
@@ -90,7 +77,6 @@
                 <!-- Pills navs -->
             </div>
         </div>
-        <?php } ?>
     <?php } ?>
 
 

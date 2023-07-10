@@ -11,7 +11,7 @@ INSERT INTO goal (image_path, title, description, status) VALUES
 
 INSERT INTO user_detail(id_user, weight, age, weight_to_operate, id_goal) VALUES
 (4, 90, 25, 10, 1),
-(4, 56, 18, 8, 2);
+(5, 56, 18, 8, 2);
 
 INSERT INTO wallet(id_user, value) VALUES
 (4, 0),
