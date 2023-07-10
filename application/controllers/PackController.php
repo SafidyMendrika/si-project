@@ -8,11 +8,18 @@ class PackController extends CI_Controller
     $data=array();
     $this->load->model("Pack");
     $data["result"]=$this->Pack->listPack();
-    $data["page"]="";
-    $data["titre"]="";
-    $this->load->view("Home",$data);
+    echo json_encode($data);
   }
 
+  public function packDetails(){
+    $this->load->model("Pack");
+    $data=array();
+    $id_pack=$this->input->get('id_pack');
+    //$id_pack=3;
+    $data["result"]=$this->Pack->packDetails($id_pack);
+    echo json_encode($data);
+  }
+  
 }
 
 ?>

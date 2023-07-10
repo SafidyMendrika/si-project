@@ -20,6 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       public function singIn($mail,$mdp,$is_google,$name){
         $sql="insert into users values(%s,%s,%g,%s,%g)";
         $sql = sprintf($sql,$this->escape($mail),$this->escape(md5($mdp)),$is_google,$this->escape($name),0);
+
         echo $sql;
         $this->db->query($sql);
       }
@@ -34,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $sql="insert into  user_detail values(%g,%g,%g,%g,%g) ";
         $sql->sprintf($sql,$id_user,$weight,$age,$weight_to_operate,$id_goal);
         echo $sql;
-        $this->db->query($sql);
+        $query=$this->db->query($sql);
     
       }
 

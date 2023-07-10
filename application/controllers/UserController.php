@@ -48,9 +48,7 @@ class UserController extends CI_Controller
       $this->load->model("User");
       $data=array();
       $data["result"]=$this->User->getGoal();
-      $data["page"]="";
-      $data["titre"]="";
-      $this->load->view("Home",$data); 
+      echo json_encode($data);
     }
 
     public function insertGoal(){

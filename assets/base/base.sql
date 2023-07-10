@@ -72,4 +72,5 @@ CREATE TABLE pack_activity(
     id_pack_activity SERIAL PRIMARY KEY,
     id_pack integer REFERENCES pack(id_pack),
     id_activity integer REFERENCES activity(id_activity)
+
 );
