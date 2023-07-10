@@ -45,7 +45,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <?php if ($this->session->has_userdata("data")){ ?>
+                <?php if ($this->session->has_userdata("data") && $this->session->userdata("data")["type"] == "u"){ ?>
                     <li class="nav-item"  style="margin-left: 5%;padding: 3%">
                         <a href="<?= base_url("GoalController") ?>" > Objectifs </a>
                     </li>

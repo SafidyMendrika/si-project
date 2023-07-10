@@ -23,6 +23,8 @@ class UserController extends CI_Controller
 
       if($mail !=null && $mdp !=null){
         $data =$this->User->loginUser($mail,$mdp);
+          $data["type"] = "u";
+          //$data["type"] = "a"; // admin
 
         $this->session->set_userdata("data",$data);
 
