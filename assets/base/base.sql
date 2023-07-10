@@ -18,8 +18,6 @@ CREATE TABLE goal(
     status integer
 );
 
-
-
 CREATE TABLE user_detail(
     id_user_detail SERIAL PRIMARY KEY,
     id_user integer REFERENCES users(id_user),
@@ -31,6 +29,7 @@ CREATE TABLE user_detail(
 
 CREATE TABLE code(
     id_code SERIAL PRIMARY KEY,
+    code VARCHAR(50),
     value double precision,
     is_used integer,
     status integer
@@ -75,4 +74,3 @@ CREATE TABLE pack_activity(
     id_pack integer REFERENCES pack(id_pack),
     id_activity integer REFERENCES activity(id_activity)
 );
-
