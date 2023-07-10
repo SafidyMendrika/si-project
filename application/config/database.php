@@ -79,7 +79,8 @@ $db['default'] = array(
 
     'username' => 'postgres',// local
 
-    'password' => 'Tahiry1849',// local
+    'password' => 'azerty',// local
+
 
     'database' => 'diettracker',// local
 
