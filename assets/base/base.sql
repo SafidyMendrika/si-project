@@ -50,14 +50,14 @@ CREATE TABLE activity(
 );
 
 CREATE TABLE pack(
-    id_pack SERIAL PRIMARY KEY,
+    git  SERIAL PRIMARY KEY,
     label text,
     price double precision,
     remise double precision
 );
 
 CREATE TABLE pack_user(
-    id_pack_user SERIAL PRIMARY KEY,
+    git _user SERIAL PRIMARY KEY,
     id_pack integer REFERENCES pack(id_pack),
     id_user integer REFERENCES users(id_user),
     duration integer
