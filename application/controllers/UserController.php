@@ -52,18 +52,15 @@ class UserController extends CI_Controller
     }
 
     public function insertGoal(){
-      $data=array();
-      $id_user=$this->input->post('id_user');
-      $weight=$this->input->post('weight');
-      $age=$this->input->post('age');
-      $weight_to_operate=$this->input->post('weight_to_operate');
-      $id_goal=$this->input->post('id_goal');
-      if($id_user !=null && $weight !=null && $age !=null && $weight_to_operate !=null && $id_goal !=null){
-        $this->User->insertGoal($id_user,$weight,$age,$weight_to_operate,$id_goal);
-        $data["page"]="";
-        $data["titre"]="";
+      $data=$this->session->userdata("data");
+      $id_user= $data["id"] ;
+      $id_goal=$this->input->get('id_goal');
+
+      /*if($id_user !=null && $weight !=null && $age !=null && $weight_to_operate !=null && $id_goal !=null){
+        //$this->User->insertGoal($id_user,$weight,$age,$weight_to_operate,$id_goal);
+
         $this->load->view("Home",$data);
-      }
+      }*/
     }
 
 
