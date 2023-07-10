@@ -64,7 +64,7 @@ CREATE TABLE pack(
 );
 
 CREATE TABLE pack_user(
-    id_pack_user SERIAL PRIMARY KEY,
+    git _user SERIAL PRIMARY KEY,
     id_pack integer REFERENCES pack(id_pack),
     id_user integer REFERENCES users(id_user),
     duration integer,
