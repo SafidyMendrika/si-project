@@ -7,6 +7,7 @@ class UserController extends CI_Controller
         parent::__construct();
 
         $this->load->model('User');
+        $this->load->model('Code');
 
     }
     function index()
@@ -22,6 +23,8 @@ class UserController extends CI_Controller
 
       if($mail !=null && $mdp !=null){
         $data =$this->User->loginUser($mail,$mdp);
+          $data["type"] = "u";
+          //$data["type"] = "a"; // admin
 
         $this->session->set_userdata("data",$data);
 
@@ -70,6 +73,12 @@ class UserController extends CI_Controller
       $id_user= $data["id"] ;
       $data["result"]=$this->User->getInfoUser($id_user);
       $this->load->view("pages/profil", $data);
+    }
+
+    function code()
+    {
+        $data["codes"] = $this->Code->findAll();
+        $this->load->view("pages/code",$data);
     }
 
 

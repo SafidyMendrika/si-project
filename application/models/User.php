@@ -43,6 +43,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       {
         $q = $this->db->from("user_detail")->select("*")->where("id_user",$id_user)->get();
 
+        if ($q->num_rows() == 0){
+          return false;
+        }
         return $q->result_array()[0];
       }
 
