@@ -47,11 +47,14 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <?php if ($this->session->has_userdata("data")){ ?>
                     <li class="nav-item"  style="margin-left: 5%;padding: 3%">
-                        <a href="<?= base_url("GoalController") ?>" >Objectifs</a>
+                        <a href="<?= base_url("GoalController") ?>" > Objectifs </a>
                     </li>
 
                     <li class="nav-item" style="margin-left: 5%;padding: 3%">
-                        <a href="<?= base_url("PackController/pack") ?>" >Pack</a>
+                        <a href="<?= base_url("PackController/pack") ?>" > Pack </a>
+                    </li>
+                    <li class="nav-item" style="margin-left: 5%;padding: 3%">
+                        <a href="<?= base_url("PackController/myPack") ?>" > Mes pack </a>
                     </li>
                 <?php } ?>
 

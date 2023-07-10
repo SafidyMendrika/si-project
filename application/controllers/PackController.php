@@ -29,7 +29,12 @@ class PackController extends CI_Controller
     $data["result"]=$this->Pack->packDetails($id_pack);
     echo json_encode($data);
   }
-  
+
+    function myPack()
+    {
+        $this->load->view("pages/my_pack");
+
+    }
 }
 
 ?>

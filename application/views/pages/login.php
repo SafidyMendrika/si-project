@@ -89,7 +89,7 @@
                     </div>
                     <div class="col-md-5">
                         <div class="form-outline">
-                            <input type="text" class="form-control" name="mdp" id="validationCustom02" value="" required />
+                            <input type="password" class="form-control" name="mdp" id="validationCustom02" value="" required />
                             <label for="validationCustom02" class="form-label">Mot De Passe</label>
                             <div class="valid-feedback">ok ! </div>
                         </div>

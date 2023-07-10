@@ -44,6 +44,7 @@ class UserController extends CI_Controller
       }
     }
 
+
     public function getGoal(){
       $this->load->model("User");
       $data=array();
@@ -61,6 +62,11 @@ class UserController extends CI_Controller
 
         $this->load->view("Home",$data);
       }*/
+    }
+
+    function profil()
+    {
+        $this->load->view("pages/profil");
     }
 
 
