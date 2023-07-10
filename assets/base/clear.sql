@@ -1,0 +1,10 @@
+drop table user;
+drop table goal;
+drop table user_detail;
+drop table code;
+drop table menu;
+drop table activity;
+drop table pack;
+drop table pack_user;
+drop table pack_menu;
+drop table pack_activity;
