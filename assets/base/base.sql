@@ -24,11 +24,12 @@ CREATE TABLE user_detail(
     weight double precision,
     age integer,
     weight_to_operate double precision,
-    id_goal REFERENCES goal(id_goal)
+    id_goal integer REFERENCES goal(id_goal)
 );
 
 CREATE TABLE code(
     id_code SERIAL PRIMARY KEY,
+    code VARCHAR(50),
     value double precision,
     is_used integer,
     status integer
