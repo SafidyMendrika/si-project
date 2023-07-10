@@ -14,4 +14,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         return $query->result_array();
       }
       
-    }
+      }
