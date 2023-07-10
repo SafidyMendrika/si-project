@@ -16,4 +16,4 @@ function createXHR(){
     return xhr;
 }
 
-var host = "localhost/si-project/";
+var host = "http://localhost/si-project/";

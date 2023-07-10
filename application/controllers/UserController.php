@@ -2,6 +2,13 @@
 
 class UserController extends CI_Controller
 {
+    function __construct()
+    {
+        parent::__construct();
+
+        $this->load->model('User');
+
+    }
     function index()
     {
         $this->load->view("Home");
@@ -9,15 +16,16 @@ class UserController extends CI_Controller
     }
 
     public function loginUser(){
-      $this->load->model->User();
       $data=array();
       $mail=$this->input->post('mail');
       $mdp=$this->input->post('mdp');
+
       if($mail !=null && $mdp !=null){
-        $data["result"]=$this->User->loginUser($mail,$mdp);
-        $data["page"]="Login";
-        $data["titre"]="Login User";
-        $this->load-view("Home",$data);
+        $data =$this->User->loginUser($mail,$mdp);
+
+        $this->session->set_userdata("data",$data);
+
+        echo json_encode($data);
       }
     }
 
