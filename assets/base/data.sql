@@ -14,6 +14,9 @@ INSERT INTO user_detail(id_user, weight, age, weight_to_operate, id_goal) VALUES
 (5, 56, 18, 8, 2);
 
 INSERT INTO wallet(id_user, value) VALUES
+(1, 0),
+(2, 0),
+(3, 0),
 (4, 0),
 (5, 0);
 

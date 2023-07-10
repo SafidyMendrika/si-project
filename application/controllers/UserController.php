@@ -66,7 +66,10 @@ class UserController extends CI_Controller
 
     function profil()
     {
-        $this->load->view("pages/profil");
+      $data=$this->session->userdata("data");
+      $id_user= $data["id"] ;
+      $data["result"]=$this->User->getInfoUser($id_user);
+      $this->load->view("pages/profil", $data);
     }
 
 
