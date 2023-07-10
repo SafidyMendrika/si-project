@@ -13,6 +13,10 @@ INSERT INTO user_detail(id_user, weight, age, weight_to_operate, id_goal) VALUES
 (4, 90, 25, 10, 1),
 (4, 56, 18, 8, 2);
 
+INSERT INTO wallet(id_user, value) VALUES
+(4, 0),
+(5, 0);
+
 INSERT INTO code (code, value, is_used, status) VALUES
 ('123456789', 50000, 0, 0),
 ('987654321', 75000, 0, 10),
@@ -44,13 +48,14 @@ INSERT INTO activity(label, kcal, image_path) VALUES
 ('Danse', 580, 'danse.jpg'),
 ('Yoga', 450, 'yoga.jpg');
 
-INSERT INTO pack(label, price, remise) VALUES
-('mince standard', 45000, 0),
-('mince rapide', 60000, 0),
-('mince premium', 80000, 0),
-('gros standard', 45000, 0),
-('gros rapide', 60000, 0),
-('gros premium', 80000, 0);
+
+INSERT INTO pack(id_goal, label, price, remise) VALUES
+(1, 'standard', 45000, 0),
+(1, 'rapide', 60000, 0),
+(1, 'premium', 80000, 0),
+(2, 'standard', 45000, 0),
+(2, 'rapide', 60000, 0),
+(2, 'premium', 80000, 0);
 
 INSERT INTO pack_user(id_pack, id_user) VALUES
 (2, 4),
