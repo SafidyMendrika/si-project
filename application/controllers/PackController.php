@@ -6,13 +6,13 @@ class PackController extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model("Pack")
+        $this->load->model("Pack");
     }
     function pack()
     {
+        $data["packs"] = $this->Pack->listPack();
 
-        
-        $this->load->view("pages/pack");
+        $this->load->view("pages/pack",$data);
     }
   public function listPack(){
     $data=array();

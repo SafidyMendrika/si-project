@@ -25,107 +25,73 @@
 <?php $this->load->view("partials/loader") ?>
 
 <main>
-    <div class="card w-40" >
-        <h5 class="card-header">Pack kely</h5>
-        <div class="card-body">
-            <!-- Pills content -->
-            <div class="tab-content" id="ex1-content">
-                <div class="tab-pane fade show active" id="ex1-pills-1" role="tabpanel" aria-labelledby="ex1-tab-1">
-                    <ul>
-                        <li>Akoho (300 KCal)</li>
-                        <li>Vary (200 KCal)</li>
-                        <li>Loka (400 KCal) </li>
-                        <li>Henakisoa (500 KCal) </li>
-                    </ul>
-                </div>
-                <div class="tab-pane fade" id="ex1-pills-2" role="tabpanel" aria-labelledby="ex1-tab-2">
+    <?php
+    $lastID = -1;
+    $lastMenuID = -1;
+    $lastActivityID = -1;
+    ?>
+    <?php foreach($packs as $pack){ ?>
+            <?php if ($pack["id_pack"] != $lastID){ ?>
+                <?php $lastID = $pack["id_pack"]; ?>
+        <div class="card" style="width: 550px">
+            <h5 class="card-header"><?= $pack["label"] ?></h5>
+            <div class="card-body">
+                <!-- Pills content -->
+                <div class="tab-content" id="ex1-content">
+                    <div class="tab-pane fade show active" id="ex<?= $pack["id_pack"] ?>-pills-1" role="tabpanel" aria-labelledby="ex1-tab-1">
+                        <ul>
+                            <?php foreach ($packs as $formenu){ ?>
+                                <?php if ($pack["id_pack"] == $formenu["id_pack"]){ ?>
+                                    <?php if ($formenu["id_menu"] != $lastMenuID){ ?>
+                                            <?php $lastMenuID = $formenu["id_menu"] ?>
+                                        <li><?= utf8_decode($formenu["menu"]) ?> (<?= $formenu["menukcal"] ?>  KCal)</li>
+                                    <?php } ?>
+                                <?php } ?>
 
-                    <li>Pompes (300 KCal / scéance)</li>
-                    <li>Abdos (200 KCal / scéances)</li>
-                    <li>Traction (400 KCal / scéance) </li>
-                    <li>Zumba (500 KCal / scéance) </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="ex<?= $pack["id_pack"] ?>-pills-2" role="tabpanel" aria-labelledby="ex1-tab-2">
+                        <?php foreach ($packs as $foractivity){ ?>
+                            <?php if ($pack["id_pack"] == $foractivity["id_pack"]){ ?>
+                                <?php if ($foractivity["id_activity"] != $lastActivityID){ ?>
+                                    <?php $lastActivityID = $foractivity["id_activity"]; ?>
+                                <li><?= utf8_decode($foractivity["activity"]) ?> (<?= $foractivity["activitykcal"] ?>  KCal)</li>
+                                <?php } ?>
+                            <?php } ?>
+                        <?php } ?>
+                    </div>
                 </div>
+                <!-- Pills content -->
+                <!-- Pills navs -->
+                <ul class="nav nav-pills mb-3" id="ex1" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="ex<?= $pack["id_pack"] ?>-tab-1" data-mdb-toggle="pill" href="#ex<?= $pack["id_pack"] ?>-pills-1" role="tab" aria-controls="ex1-pills-1" aria-selected="true">
+                            Menu
+                        </a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a
+                                class="nav-link"
+                                id="ex<?= $pack["id_pack"] ?>-tab-2"
+                                data-mdb-toggle="pill"
+                                href="#ex<?= $pack["id_pack"] ?>-pills-2"
+                                role="tab"
+                                aria-controls="ex1-pills-2"
+                                aria-selected="false"
+                        >Activités sportives</a
+                        >
+                    </li>
+                    <li class="nav-" role="presentation">
+                        <a href="" class="nav-link" style="padding: 0;display: flex;align-items: center;justify-content: space-around"><button class="btn btn-success"><i class="fas fa-money"></i> 30 000Ar</button></a
+                        >
+                    </li>
+                </ul>
+                <!-- Pills navs -->
             </div>
-            <!-- Pills content -->
-            <!-- Pills navs -->
-            <ul class="nav nav-pills mb-3" id="ex1" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link active" id="ex1-tab-1" data-mdb-toggle="pill" href="#ex1-pills-1" role="tab" aria-controls="ex1-pills-1" aria-selected="true">
-                        Menu
-                    </a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a
-                            class="nav-link"
-                            id="ex1-tab-2"
-                            data-mdb-toggle="pill"
-                            href="#ex1-pills-2"
-                            role="tab"
-                            aria-controls="ex1-pills-2"
-                            aria-selected="false"
-                    >Activités sportives</a
-                    >
-                </li>
-                <li class="nav-" role="presentation">
-                    <a href="" class="nav-link" style="padding: 0;display: flex;align-items: center;justify-content: space-around"><button class="btn btn-success"><i class="fas fa-money"></i> 30 000Ar</button></a
-                    >
-                </li>
-            </ul>
-            <!-- Pills navs -->
         </div>
-    </div>
-
-
-    <div class="card w-40" >
-        <h5 class="card-header">Pack kely</h5>
-        <div class="card-body">
-            <!-- Pills content -->
-            <div class="tab-content" id="ex1-content">
-                <div class="tab-pane fade show active" id="ex1-pills-1" role="tabpanel" aria-labelledby="ex1-tab-1">
-                    <ul>
-                        <li>Akoho (300 KCal)</li>
-                        <li>Vary (200 KCal)</li>
-                        <li>Loka (400 KCal) </li>
-                        <li>Henakisoa (500 KCal) </li>
-                    </ul>
-                </div>
-                <div class="tab-pane fade" id="ex1-pills-2" role="tabpanel" aria-labelledby="ex1-tab-2">
-
-                    <li>Pompes (300 KCal / scéance)</li>
-                    <li>Abdos (200 KCal / scéances)</li>
-                    <li>Traction (400 KCal / scéance) </li>
-                    <li>Zumba (500 KCal / scéance) </li>
-                </div>
-            </div>
-            <!-- Pills content -->
-            <!-- Pills navs -->
-            <ul class="nav nav-pills mb-3" id="ex1" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link active" id="ex1-tab-1" data-mdb-toggle="pill" href="#ex1-pills-1" role="tab" aria-controls="ex1-pills-1" aria-selected="true">
-                        Menu
-                    </a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a
-                            class="nav-link"
-                            id="ex1-tab-2"
-                            data-mdb-toggle="pill"
-                            href="#ex1-pills-2"
-                            role="tab"
-                            aria-controls="ex1-pills-2"
-                            aria-selected="false"
-                    >Activités sportives</a
-                    >
-                </li>
-                <li class="nav-" role="presentation">
-                    <a href="" class="nav-link" style="padding: 0;display: flex;align-items: center;justify-content: space-around"><button class="btn btn-success"><i class="fas fa-money"></i> 30 000Ar</button></a
-                    >
-                </li>
-            </ul>
-            <!-- Pills navs -->
-        </div>
-    </div>
-
+        <?php } ?>
+    <?php } ?>
 
 
 </main>
