@@ -67,7 +67,8 @@ CREATE TABLE pack_user(
     id_pack_user SERIAL PRIMARY KEY,
     id_pack integer REFERENCES pack(id_pack),
     id_user integer REFERENCES users(id_user),
-    duration integer
+    duration integer,
+    price double precision
 );
 
 CREATE TABLE pack_menu(

@@ -10,7 +10,16 @@ class PackController extends CI_Controller
     }
     function pack()
     {
-        $data["packs"] = $this->Pack->listPack();
+
+        $p =$this->Pack;
+        $res = [];
+        try {
+            $res = $p->packs_for($this->session->userdata("data")["id"]);
+        }catch (Exception $e){
+            $e->getCode();
+        }
+
+        $data["packs"] = $res;
 
         $this->load->view("pages/pack",$data);
     }
