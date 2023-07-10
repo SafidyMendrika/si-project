@@ -2,21 +2,19 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
     class Wallet extends CI_Model{
 
-      public function getMoney($code){
+      public function pendingDemand($code){
         $this->db->select("*")->from("code")->where('code',$code);
         $query=$this->db->get();
-        $result=$query->result_array()[0]['is_used'];
+        $q = $query->result_array();
+        $result=$q[0]['is_used'];
         if($result==1){
           return false;
         }else{
-          return $query->result_array()[3]['value'];
+          $sql="update code set status=10 where code=%s";
+          $sql= sprintf($sql,$this->db->escape($code));
+          echo $sql;
+          $query=$this->db->query($sql);
         }  
       }
-      
-      public function insertWallet($id_user,$value){
-        $sql="insert into wallet values(%g,%g)";
-        $sql = sprintf($sql,$id_user,$value);
-        echo $sql;
-        $this->db->query($sql);
-      }
+
     }

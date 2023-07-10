@@ -38,9 +38,6 @@ class UserController extends CI_Controller
       $name=$this->input->post('name');
       if($mail!=null && $mdp !=null && $name !=null){
         $this->User->singIn($mail,$mdp,$is_google,$name);
-        $data["page"]="";
-        $data["titre"]="";
-        $this->load->view("Home",$data);
       }
     }
 
