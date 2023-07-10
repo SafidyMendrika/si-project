@@ -61,7 +61,7 @@
             </ul>
             <?php if($this->session->has_userdata("data")){ ?>
                 <div class="btn-group shadow-0" role="group">
-                    <a href="<?= base_url("") ?>" ><button type="button" class="btn btn-ligth" ><?= $this->session->userdata("data")["name"] ?></button></a>
+                    <a href="<?= base_url("UserController/profil") ?>" ><button type="button" class="btn btn-ligth" ><?= $this->session->userdata("data")["name"] ?></button></a>
                     <a href="<?= base_url("LoginController/logout") ?>" ><button type="button" class="btn btn-danger" >Se Deconnecter</button></a>
                 </div>
             <?php }else{ ?>
