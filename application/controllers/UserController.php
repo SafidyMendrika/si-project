@@ -54,7 +54,6 @@ class UserController extends CI_Controller
     }
 
     public function insertGoal(){
-      $this->load->model("User");
       $data=array();
       $id_user=$this->input->post('id_user');
       $weight=$this->input->post('weight');

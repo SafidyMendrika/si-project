@@ -22,11 +22,12 @@
     <script type="text/javascript"  src="<?= base_url("assets/js/xhr.js"); ?>"></script>
 
 </head>
-<body>
+
+<body >
 <?php $this->load->view("partials/header") ?>
 
 
-<main>
+<main style="margin-top: 4%">
     <div class="container" >
         <!-- Carousel wrapper -->
             <div id="carouselMaterialStyle" class="carousel slide carousel-fade left" data-mdb-ride="carousel">
