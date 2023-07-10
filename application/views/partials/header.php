@@ -10,7 +10,7 @@
 </style>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top" >
     <!-- Container wrapper -->
     <div class="container-fluid">
 
@@ -46,10 +46,18 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
             </ul>
-            <div class="btn-group shadow-0" role="group">
-                <a href="<?= base_url("LoginController") ?>" ><button type="button" class="btn btn-ligth" >Se Connecter</button></a>
-                <button type="button" class="btn btn-success" >S'inscrire</button>
-            </div>
+            <?php if($this->session->has_userdata("data")){ ?>
+                <div class="btn-group shadow-0" role="group">
+                    <a href="<?= base_url("LoginController") ?>" ><button type="button" class="btn btn-ligth" ><?= $this->session->userdata("data")["name"] ?></button></a>
+                    <a href="<?= base_url("LoginController/logout") ?>" ><button type="button" class="btn btn-danger" >Se Deconnecter</button></a>
+
+                </div>
+            <?php }else{ ?>
+                <div class="btn-group shadow-0" role="group">
+                    <a href="<?= base_url("LoginController") ?>" ><button type="button" class="btn btn-ligth" >Se Connecter</button></a>
+                    <button type="button" class="btn btn-success" >S'inscrire</button>
+                </div>
+            <?php } ?>
         </div>
         </div>
 

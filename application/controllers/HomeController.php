@@ -7,4 +7,11 @@ class HomeController extends CI_Controller
     {
         $this->load->view("index");
     }
+
+    function checkgoal()
+    {
+        if ($this->session->has_userdata("data") == false){
+            redirect(base_url());
+        }
+    }
 }

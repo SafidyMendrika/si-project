@@ -16,7 +16,7 @@ CREATE TABLE goal(
     title VARCHAR(50),
     description text,
     status integer
-);
+);  
 CREATE TABLE user_detail(
     id_user_detail SERIAL PRIMARY KEY,
     id_user integer REFERENCES users(id_user),

@@ -6,4 +6,11 @@ class LoginController extends CI_Controller
     {
         $this->load->view("pages/login");
     }
+
+    function logout()
+    {
+        $this->session->sess_destroy();
+
+        redirect(base_url());
+    }
 }
