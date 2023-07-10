@@ -79,14 +79,14 @@
                 <form class="row g-3 needs-validation" id="form" novalidate>
                     <div class="col-md-5 input">
                         <div class="form-outline">
-                            <input type="text" class="form-control" id="validationCustom01" value="" required />
+                            <input type="text" class="form-control" name="mail" id="validationCustom01" value="" required />
                             <label for="validationCustom01" class="form-label">Mail</label>
                             <div class="valid-feedback">ok !</div>
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="form-outline">
-                            <input type="text" class="form-control" id="validationCustom02" value="" required />
+                            <input type="text" class="form-control" name="mdp" id="validationCustom02" value="" required />
                             <label for="validationCustom02" class="form-label">Mot De Passe</label>
                             <div class="valid-feedback">ok ! </div>
                         </div>
@@ -100,7 +100,6 @@
         </div>
     </div>
 </main>
-
 <!-- MDB -->
 <script type="text/javascript" src="<?= base_url("assets/js/mdb.min.js") ?>"></script>
 
@@ -132,16 +131,8 @@
     form.addEventListener("submit",(e)=>{
         e.preventDefault();
 
-        let isValidate = true;
-
-        const forms = document.querySelectorAll('.needs-validation');
-
-        console.log(forms.length + " form");
-        console.log("val : "+ form.querySelectorAll(".was-validated").length)
-        if (forms.length == form.querySelectorAll(".was-validated").length){
-            console.log("zayy");
-        }else{
-            console.log("miandry");
+        if (form.checkValidity()){
+            login(form);
         }
     })
 </script>

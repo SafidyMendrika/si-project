@@ -4,9 +4,12 @@ function login(formDom){
     const xhr = createXHR();
 
     xhr.addEventListener("load",(e)=>{
-        console.log("hello");
+        const obj = JSON.parse(e.target.responseText);
 
-        console.log(e.target.responseText);
+        if (obj != false){
+
+            window.location.href = host+"GoalController"
+        }
     })
     xhr.open("POST",host+"UserController/loginUser");
 

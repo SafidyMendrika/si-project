@@ -8,10 +8,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       return $query->result_array();
       }
 
-      public function packDetails($id){
-        $this->db->select("*")->from("v_list_pack")->where('id_pack',$id);
+      public function listPackGoal($id_goal){
+        $this->db->select("*")->from("v_list_pack")->where("id_goal",$id_goal);
         $query=$this->db->get();
-        return $query->result_array();
+      return $query->result_array();
       }
-      
     }
