@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           return $query->result_array()[3]['value'];
         }  
       }
-
+      
       public function insertWallet($id_user,$value){
         $sql="insert into wallet values(%g,%g)";
         $sql = sprintf($sql,$id_user,$value);

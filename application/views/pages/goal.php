@@ -20,11 +20,36 @@
     <link rel="stylesheet" href="<?= base_url("assets/css/mdb.min.css") ?>" />
 
 </head>
-<body>
+<body style="padding-top: 50px">
 <?php $this->load->view("partials/header") ?>
 
-well come badoude
+<main style="display: flex;flex-wrap: wrap">
+    <div class="card" style="margin: 2%;width: 450px;height: 500px"  >
+        <img src="<?= base_url("assets/img/muscle.jpg") ?>" style="height: 55%" class="card-img-top" alt="Fissure in Sandstone"/>
+        <div class="card-body">
+            <h5 class="card-title">Prise de Masse</h5>
+            <p class="card-text">Vous vous sentez fin et veut prendre un peu de masse ? Ce programme et fait pour Vous , Découvrez notre formule spéciale prise de masse</p>
+            <a href="#!" class="btn btn-primary"  style="margin-top: 2%">Oui , c'est moi</a>
+        </div>
+    </div>
+    <div class="card" style="margin: 2%;width: 450px;height: 500px">
+        <img src="<?= base_url("assets/img/regime.jpg") ?>" style="height: 55%" class="card-img-top" alt="Fissure in Sandstone"/>
+        <div class="card-body">
+            <h5 class="card-title">Mincir</h5>
+            <p class="card-text">Vous pouvez choisir la masse que vous voulez enlever tout en pratiquant notre programme sportif spécialement fait pour Vous</p>
+            <a href="#!" class="btn btn-primary" style="margin-top: 2%">Oui , c'est moi</a>
+        </div>
+    </div>
 
+    <div class="card" style="margin: 2%;width: 450px;height: 500px">
+        <img src="<?= base_url("assets/img/banane.png") ?>" style="height: 55%" class="card-img-top" alt="Fissure in Sandstone"/>
+        <div class="card-body">
+            <h5 class="card-title">Guest</h5>
+            <p class="card-text">Si vous voulez simpleent vous régaler avec nos plats délicieuses et BIO</p>
+            <a href="#!" class="btn btn-primary"  style="margin-top: 2%">Oui , c'est moi</a>
+        </div>
+    </div>
+</main>
 <!-- MDB -->
 <script type="text/javascript" src="<?= base_url("assets/js/mdb.min.js") ?>"></script>
 </body>

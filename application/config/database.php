@@ -80,11 +80,16 @@ $db['default'] = array(
     'username' => 'postgres',// local
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     'password' => 'sariaka26',// local
 =======
     'password' => 'azerty',// local
 
 >>>>>>> Tahiry
+=======
+    'password' => 'azerty',// local
+
+>>>>>>> dev
 
     'database' => 'diettracker',// local
 

@@ -43,7 +43,17 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <?php if ($this->session->has_userdata("data")){ ?>
+                    <li class="nav-item"  style="margin-left: 5%">
+                        <a href="<?= base_url("GoalController") ?>" >Objectifs</a>
+                    </li>
+
+                    <li class="nav-item" style="margin-left: 5%">
+                        <a href="<?= base_url("GoalController") ?>" >Pack</a>
+                    </li>
+                <?php } ?>
 
             </ul>
             <?php if($this->session->has_userdata("data")){ ?>
