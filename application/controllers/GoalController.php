@@ -25,5 +25,12 @@ class GoalController extends CI_Controller
         }
     }
 
+    function insertGoal($idGoal)
+    {
+        $idUser = $this->session->userdata("data")["id"];
+
+        $this->User->insertGoal($idUser,$idGoal);
+    }
+
     
 }

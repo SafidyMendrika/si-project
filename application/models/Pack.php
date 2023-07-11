@@ -36,6 +36,12 @@ class Pack extends CI_Model{
     return ceil(abs($answer));
   }
 
+    function listPackOfUser($id_user)
+    {
+        $query = "SELECT * FROM  pack where id_pack in (SELECT id_pack from pack_user where id_user = $id_user)";
+
+        return $this->db->query($query)->result_array();
+    }
     function buyPack($idPack,$idUser,$nbDay,$totalPrice)
     {
         $query = "INSERT INTO pack_user( id_pack , id_user , duration , price) VALUES(%s,%s,%s,%s) ";
@@ -52,6 +58,51 @@ class Pack extends CI_Model{
         return false;
     }
 
+    function packOf($id_user)
+    {
+        $usr = new User();
+        $act = $this->Activity;
+        $mnu = $this->Menu;
+
+
+        $detals = $this->User->getDetals($id_user);
+
+        $list_simple = $this->listPackOfUser($id_user);
+
+        $kcal_goal = $this->convertKg($detals["weight_to_operate"]);
+
+        $tempkcal = 0;
+        $actkcal = 0;
+        $nb_day = 0;
+        $result = array();
+
+        foreach ($list_simple as $l){
+            $tempkcal = $kcal_goal;
+            $actkcal = 0;
+
+
+            $menus = $mnu->getByPack($l["id_pack"]);
+            foreach ($menus as $m){
+                $tempkcal += $m["menukcal"];
+            }
+
+            $acts = $act->getByPack($l["id_pack"]);
+
+            foreach ($acts as $a) {
+                $actkcal += $a["activitykcal"];
+            }
+
+            $nb_day = $this->getNbJour($tempkcal,$actkcal);
+
+            $l["nb_day"] = $nb_day;
+            $l["total_price"] = $nb_day * $l["price"];
+
+            $result[] = $l;
+        }
+
+        return $result;
+
+    }
   public function packs_for($id_user){
       $usr = new User();
       $act = $this->Activity;
