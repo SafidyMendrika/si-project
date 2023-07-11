@@ -77,6 +77,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       echo $sql;
       $this->db->query($sql);
     }
+
+    public function insertUserSubscription($id_user,$id_subscription){
+      $sql="insert into user_subscription values(%g,%g)";
+      $sql=sprintf($sql,$id_user,$id_subscription);
+      echo $sql;
+      $this->db->query($sql);
+    }
+    
+
   }
 
     
