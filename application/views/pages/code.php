@@ -50,10 +50,10 @@ function getStatusLabel($status)
         <div class="right" style="border: none;width: 650px">
             <div class="head" ><h2>Entrez votre code à 9 chiffres </h2></div>
             <section class="form">
-                <form action="<?= base_url() ?>" method="post" class="row g-3 needs-validation w-100 p-3" id="form" novalidate>
+                <form action="<?= base_url("UserController/insertCode") ?>" method="post" class="row g-3 needs-validation w-100 p-3" id="form" novalidate>
                     <div class="col-md-5 input" >
                         <div class="form-outline">
-                            <input type="text" class="form-control" name="mail" id="validationCustom01" value="" required />
+                            <input type="text" class="form-control" name="code" id="validationCustom01" value="" required />
                             <label for="validationCustom01" class="form-label">XXXXXXXXX</label>
                         </div>
                     </div>

@@ -99,12 +99,13 @@ class UserController extends CI_Controller
         redirect(base_url("LoginController"));
     }
 
-    function insertCodde()
+    function insertCode()
     {
         $id = $this->session->userdata("data")["id"];
         $code = $this->input->post("code");
 
          $this->Code->insertCode($code,$id);
+         redirect($_SERVER["HTTP_REFERER"]);
     }
     public function modificationProfil(){
       $this->load->view("pages/modificationprofil");
