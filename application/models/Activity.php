@@ -28,13 +28,6 @@ class Activity extends  CI_Model
       return $query->result_array();
     }
 
-    public function insertActivity($label,$kcal,$image_path){
-      $sql="insert into activity values(default,%s,%g,%s)";
-      $sql=sprintf($sql,$this->db->escape($label),$kcal,$this->db->escape($image_path));
-      echo $sql;
-      $this->db->query($sql);
-    }
-
     public function deleteActivity($id_activity){
       $sql="delete from activity where id_activity=%g";
       $sql=sprintf($sql,$id_activity);
@@ -58,6 +51,19 @@ class Activity extends  CI_Model
       $query=$this->db->get();
       return $query->result_array();
       
+    }
+
+    public function getAllActivity(){
+      $this->db->select("*")->from("activity")->order_by('id_activity', 'desc');
+      $query=$this->db->get();
+      return $query->result_array();
+      
+    }
+
+    public function insertActivity($nom, $kcal){
+      $sql="insert into activity values(default, '$nom', $kcal, 'sportUni.jpg')";
+        echo $sql;
+        $this->db->query($sql);
     }
 }
    

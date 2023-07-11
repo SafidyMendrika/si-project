@@ -10,7 +10,7 @@ class Code extends CI_Model
 
     function findALl()
     {
-        $q = $this->db->from("code")->select('*')->get();
+        $q = $this->db->from("code")->select('*')->order_by('id_code', 'desc')->get();
 
         return $q->result_array();
     }
@@ -33,5 +33,22 @@ class Code extends CI_Model
     function accept()
     {
         $sql="insert"
+    }
+
+    function generateCode(){
+        $debut = 0;
+        $answer="";
+        while($debut < 9){
+            $rand= rand(0, 9);
+            $answer = $answer.$rand;
+            $debut++;
+        }
+        return $answer;
+    }
+
+    function insertCodeBack($code, $valeur){
+        $sql="insert into code values(default, $code, $valeur, 0, 0, null)";
+        echo $sql;
+        $this->db->query($sql);
     }
 }

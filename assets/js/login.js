@@ -7,8 +7,9 @@ function login(formDom){
         const obj = JSON.parse(e.target.responseText);
 
         if (obj != false){
-
-            window.location.href = host+"GoalController"
+            window.location.href = host+"GoalController";
+        }else{
+            Snackbar.show();
         }
     })
     xhr.open("POST",host+"UserController/loginUser");

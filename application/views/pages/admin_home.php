@@ -30,26 +30,19 @@
 
 
 <main style="margin-top: 58px">
-    <div class="row">
-        <div class="col-md-4">
-            <h4>Nombre d'utilisateur</h4>
-                <p>22 personnes</p>
-        </div>
-        <div class="col-md-4">
-            <h4>Programme de perte de poids</h4>
-                <p>10 personnes</p>
-        </div>
-        <div class="col-md-4">
-            <h4>Programme de prise de poids</h4>
-                <p>10 personnes</p>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-5">
-            <div class="chart" style="width: 500px;">
-                <h4>Nombre de transactions par mois</h4>
-                <canvas id="myChart1"></canvas>
+    <div class="container pt-4">
+        <div class="row">
+            <div class="col-md-4 card p-2 m-1" >
+                <h4>Nombre d'utilisateur</h4>
+                    <p><?= $alluser; ?> personnes</p>
+            </div>
+            <div class="col-md-4 card p-2 m-1">
+                <h4>Programme de perte de poids</h4>
+                    <p><?= $perte; ?> personnes</p>
+            </div>
+            <div class="col-md-4 card p-2 m-1" >
+                <h4>Programme de prise de poids</h4>
+                    <p><?= $prise; ?> personnes</p>
             </div>
         </div>
         <div class="col-md-2"></div>
@@ -135,51 +128,5 @@
 
 </script>
 
-
-<style>
-    body {
-        background-color: #fbfbfb;
-    }
-
-    @media (min-width: 991.98px) {
-        main {
-            padding-left: 240px;
-        }
-    }
-
-    /* Sidebar */
-    .sidebar {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        padding: 58px 0 0;
-        /* Height of navbar */
-        box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
-        width: 240px;
-        z-index: 600;
-    }
-
-    @media (max-width: 991.98px) {
-        .sidebar {
-            width: 100%;
-        }
-    }
-
-    .sidebar .active {
-        border-radius: 5px;
-        box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
-    }
-
-    .sidebar-sticky {
-        position: relative;
-        top: 0;
-        height: calc(100vh - 48px);
-        padding-top: 0.5rem;
-        overflow-x: hidden;
-        overflow-y: auto;
-        /* Scrollable contents if viewport is shorter than content. */
-    }
-</style>
 </body>
 </html>

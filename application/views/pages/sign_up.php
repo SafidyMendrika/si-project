@@ -63,7 +63,7 @@
                 </div>
             </form>
             <?php }else{ ?>
-                <form action="<?= base_url("UserController/insertDetals") ?>" method="post" class="row g-3 needs-validation" id="form" novalidate>
+                    <form action="<?= base_url("UserController/insertDetals") ?>" method="post" class="row g-3 needs-validation" id="form" novalidate>
                     <div class="col-md-5 ">
                         <h2>Remplissez les details</h2>
                     </div>
@@ -83,7 +83,7 @@
                     </div>
                     <div class="col-md-5 m-3">
                         <div class="form-outline">
-                            <input type="number" class="form-control" name="taille" id="validationCustom03" value="" required />
+                            <input type="number" class="form-control" name="taille" id="validationCustom03" value="" placeholder="ex: 180"  required />
                             <label for="validationCustom03" class="form-label">Taille</label>
                         </div>
                     </div>

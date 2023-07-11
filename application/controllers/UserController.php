@@ -29,12 +29,18 @@ class UserController extends CI_Controller
 
       if($mail !=null && $mdp !=null){
         $data =$this->User->loginUser($mail,$mdp);
-          $data["type"] = "u";
-          //$data["type"] = "a"; // admin
 
-        $this->session->set_userdata("data",$data);
+        if ($data != false){
 
-        echo json_encode($data);
+            $data["type"] = "u";
+            //$data["type"] = "a"; // admin
+
+            $this->session->set_userdata("data",$data);
+
+            echo json_encode($data);
+        }else{
+            echo "false";
+        }
       }
     }
 
@@ -75,16 +81,23 @@ class UserController extends CI_Controller
       $data=$this->session->userdata("data");
       $id_user= $data["id"] ;
       $data["result"]=$this->User->getInfoUser($id_user);
+      foreach ($this->User->getInfoUser($id_user) as $element) {
+        $data["imc"] = $this->User->getIMC($element["weight"], $element["height"]);
+      }
       $this->load->view("pages/profil", $data);
     }
 
     function insertDetals()
     {
         $q = $this->db->from("users")->select("max(id_user)")->get();
-        $id = $q->result_array()[0]["max"];
+        $id_user = $q->result_array()[0]["max"];
+        $age = $this->input->post("age");
+        $poids = $this->input->post("poids");
+        $taille = $this->input->post("taille");
 
-        
+        $this->User->insertDetals($id_user,$age,$poids,$taille);
 
+        redirect(base_url("LoginController"));
     }
     public function modificationProfil(){
       $this->load->view("pages/modificationprofil");

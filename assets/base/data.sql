@@ -9,9 +9,9 @@ INSERT INTO goal (image_path, title, description, status) VALUES
 ('', 'perte de poids', 'Notre programme vous offre une approche sur mesure pour atteindre vos objectifs de perte de poids. En plus, nos entraînements intensif sont conçus pour maximiser la combustion des graisses et accélérer votre métabolisme. Vous verrez des résultats significatifs en termes de perte de poids', -10),
 ('', 'prise de poids', ' Nous vous aiderons à choisir des aliments nutritifs et caloriques, tels que des sources de protéines maigres, des grains entiers, des fruits secs et des graisses saines. En adoptant une approche équilibrée, vous pourrez prendre du poids tout en préservant votre santé globale.', 10);
 
-INSERT INTO user_detail(id_user, weight, age, weight_to_operate, id_goal) VALUES
-(4, 90, 25, 10, 1),
-(5, 56, 18, 8, 2);
+INSERT INTO user_detail(id_user, weight, height, age, weight_to_operate, id_goal) VALUES
+(4, 90, 182, 25, 10, 1),
+(5, 56, 172, 18, 8, 2);
 
 INSERT INTO wallet(id_user, value) VALUES
 (1, 0),
@@ -21,11 +21,11 @@ INSERT INTO wallet(id_user, value) VALUES
 (5, 0);
 
 INSERT INTO code (code, value, is_used, status) VALUES
-('  ', 50000, 0, 0),
-('987654321', 75000, 0, 10),
-('147258369', 25000, 0, 0),
-('369258147', 20000, 0, 20),
-('258369147', 40000, 0, 0);
+('  ', 5000000, 0, 0),
+('987654321', 7500000, 0, 10),
+('147258369', 2500000, 0, 0),
+('369258147', 2000000, 0, 20),
+('258369147', 4000000, 0, 0);
 
 INSERT INTO menu(label, kcal, image_path) VALUES
 ('salade de poulet grillé', 275, 'poulet_grille.jpg'),
@@ -53,12 +53,12 @@ INSERT INTO activity(label, kcal, image_path) VALUES
 
 
 INSERT INTO pack(id_goal, label, price, remise) VALUES
-(1, 'standard', 45000, 0),
-(1, 'rapide', 60000, 0),
-(1, 'premium', 80000, 0),
-(2, 'standard', 45000, 0),
-(2, 'rapide', 60000, 0),
-(2, 'premium', 80000, 0);
+(1, '(Mince) standard', 45000, 0),
+(1, '(Mince) rapide', 60000, 0),
+(1, '(Mince) premium', 80000, 0),
+(2, '(Muscle) standard', 45000, 0),
+(2, '(Muscle) rapide', 60000, 0),
+(2, '(Muscle) premium', 80000, 0);
 
 INSERT INTO pack_user(id_pack, id_user) VALUES
 (2, 4),
@@ -87,3 +87,8 @@ INSERT INTO pack_activity(id_pack, id_activity) VALUES
 (4, 2),
 (5, 8),
 (6, 5);
+
+INSERT INTO subscription VALUES 
+(default,'SILVER',20000,10),
+(default,'GOLD',25000,12),
+(default,'DIAMOND',30000,20);

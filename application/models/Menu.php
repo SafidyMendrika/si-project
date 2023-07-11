@@ -32,4 +32,17 @@ class Menu extends CI_Model
         }
         return $list_pack;
     }
+
+    public function getAllMenu(){
+      $this->db->select("*")->from("menu")->order_by('id_menu', 'desc');
+      $query=$this->db->get();
+      return $query->result_array();
+      
+    }
+
+    public function insertMenu($nom, $kcal){
+      $sql="insert into menu values(default, '$nom', $kcal, 'sakafoUni.jpg')";
+        echo $sql;
+        $this->db->query($sql);
+    }
 }

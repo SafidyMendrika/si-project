@@ -10,3 +10,5 @@ drop table pack cascade;
 drop table menu cascade;
 drop table activity cascade;
 drop table transaction cascade;
+drop table golden_user cascade;
+drop table subscription cascade;

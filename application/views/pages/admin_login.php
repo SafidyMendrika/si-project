@@ -34,19 +34,17 @@
         <div class="right" style="border:2px solid #28436e;border-right: none;" >
             <div class="head" style="color: #28436e" ><h2>Admin </h2></div>
             <section class="form">
-                <form class="row g-3 needs-validation" id="form" novalidate>
+                <form class="row g-3 needs-validation" action="<?= base_url("LoginController/loginAdmin") ?>" id="form" method="post" >
                     <div class="col-md-5 input">
                         <div class="form-outline">
                             <input type="text" class="form-control" name="mail" id="validationCustom01" value="" required />
                             <label for="validationCustom01" class="form-label">Mail</label>
-                            <div class="valid-feedback">ok !</div>
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="form-outline">
                             <input type="password" class="form-control" name="mdp" id="validationCustom02" value="" required />
                             <label for="validationCustom02" class="form-label">Mot De Passe</label>
-                            <div class="valid-feedback">ok ! </div>
                         </div>
                     </div>
                     <div class="col-md-5 col-xs-5">
@@ -57,8 +55,8 @@
             </section>
         </div>
         <!-- Carousel wrapper -->
-        <div id="carouselMaterialStyle" class="left" data-mdb-ride="carousel">
-            <img src="<?= base_url("assets/img/admin.jpg") ?>" style="width: 100%;height: 100%">
+        <div class="left d-flex justify-content-around align-items-center" >
+            <img src="<?= base_url("assets/img/diet-tracker.png") ?>" class="w-75 " style="border-radius: 50%"></img>
         </div>
     </div>
 </main>
@@ -68,7 +66,6 @@
 <script type="text/javascript"  src="<?= base_url("assets/js/login.js"); ?>" defer>
 
 </script>
-<!-- Custom scripts -->
 
 </body>
 </html>

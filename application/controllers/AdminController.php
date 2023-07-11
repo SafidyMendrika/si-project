@@ -5,16 +5,30 @@ class AdminController extends  CI_Controller
     function __construct()
     {
         parent::__construct();
+
+        if ($this->session->has_userdata("data") && $this->session->userdata("data")["type"] =="a"){
+
+        }else{
+            redirect(base_url());
+        }
+
         $this->load->model("Admin");
+        $this->load->model("Code");
+        $this->load->model("Activity");
+        $this->load->model("Menu");
+        $this->load->model("Pack");
     }
 
     function index()
     {
-        $this->load->view("pages/admin_login");
+        redirect(base_url("AdminController/home"));
     }
     function home()
     {
-        $this->load->view("pages/admin_home");
+        $data['alluser'] = $this->Admin->getNbUser();
+        $data['perte'] = $this->Admin->getNbUserGoal(1);
+        $data['prise'] = $this->Admin->getNbUserGoal(2);
+        $this->load->view("pages/admin_home", $data);
     }
 
     public function getDemand(){
@@ -25,8 +39,8 @@ class AdminController extends  CI_Controller
 
     public function demandValidation(){
 
-        $id_code=$this->input->post('id_code');
-        $action=$this->input->post('action');
+        $id_code=$this->input->get('id_code');
+        $action=$this->input->get('action');
         // $id_code=5;
         // $action=1;
         if($action == 0){
@@ -46,9 +60,18 @@ class AdminController extends  CI_Controller
  
     }
 
+    public function codeInsertion(){
+        $code = $this->Code->generateCode();
+        $valeur= $_POST['value'];
+        $this->Code->insertCodeBack($code, $valeur);
+
+        redirect($_SERVER["HTTP_REFERER"]);
+    }
+
     function code()
     {
-        $this->load->view("pages/admin_code");
+        $data['code'] = $this->Code->findAll();
+        $this->load->view("pages/admin_code", $data);
     }
 
     public function loginAdmin(){
@@ -66,6 +89,43 @@ class AdminController extends  CI_Controller
       
               echo json_encode($data);
             }
-          }
+    }
+
+    public function numbers(){
+        $data['alluser'] = $this->Admin->getNbUser();
+        $data['perte'] = $this->Admin->getNbUserGoal(1);
+        $data['prise'] = $this->Admin->getNbUserGoal(2);
+        $this->load->view("pages/admin_numbers", $data);
+    }
+
+    public function packs(){
+        $data['pack'] = $this->Pack->getAllPack();
+        $this->load->view("pages/admin_packs", $data);
+    }
+
+    public function regimes(){
+        $data['menu'] = $this->Menu->getAllMenu();
+        $this->load->view("pages/admin_regimes", $data);
+    }
+
+    public function activites(){
+        $data['activity'] = $this->Activity->getAllActivity();
+        $this->load->view("pages/admin_activities", $data);
+    }
+
+    public function traitementRegime(){
+        $nom = $_POST['nom'];
+        $kcal = $_POST['kcal'];
+        $this->Menu->insertMenu($nom, $kcal);
+
+        redirect($_SERVER["HTTP_REFERER"]);
+    }
     
+    public function traitementActivity(){
+        $nom = $_POST['nom'];
+        $kcal = $_POST['kcal'];
+        $this->Activity->insertActivity($nom, $kcal);
+
+        redirect($_SERVER["HTTP_REFERER"]);
+    }
 }

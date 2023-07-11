@@ -52,6 +52,12 @@
                         poids: <?= $element["weight"]; ?> kg
                     </p>
                     <p class="card-text">
+                        taille: <?= $element["height"]; ?> m
+                    </p>
+                    <p class="card-text">
+                        IMC: <?= $imc; ?> 
+                    </p>
+                    <p class="card-text">
                         objectif: <?= $element["title"]; ?> (<?= $element["weight_to_operate"]; ?>kg)
                     </p>
                     <p class="card-text">
