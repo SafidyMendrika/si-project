@@ -7,6 +7,12 @@ class GoalController extends CI_Controller
         parent::__construct();
         $this->load->model("Goal");
         $this->load->model("User");
+
+        if ($this->session->has_userdata("data")){
+            $this->load->model("Wallet");
+            $amount = $this->Wallet->getAmount($this->session->userdata("data")["id"]);
+            $this->session->set_userdata("amount",$amount);
+        }
     }
     function index()
     {

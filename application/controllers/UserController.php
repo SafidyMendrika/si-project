@@ -11,6 +11,11 @@ class UserController extends CI_Controller
         $this->load->model('Wallet');
         $this->load->model('Subscription');
 
+        if ($this->session->has_userdata("data")){
+            $amount = $this->Wallet->getAmount($this->session->userdata("data")["id"]);
+            $this->session->set_userdata("amount",$amount);
+        }
+
     }
     function index()
     {
@@ -139,5 +144,26 @@ class UserController extends CI_Controller
     }
     }
 
+    function buyGold()
+    {
+        $id = $this->session->userdata("data")["id"];
+
+        $price = 20000;
+
+        $amount = $this->Wallet->getAmount($id);
+
+        if ($amount < $price){
+            redirect($_SERVER["HTTP_REFERER"]);
+            return;
+            //redirect($_SERVER["HTTP_REFERER"]);
+        }
+
+        $this->Wallet->setAmount($id,$amount-$price);
+
+        $q = "INSERT INTO golden_user VALUES ($id)";
+        $this->db->query($q);
+
+        redirect(base_url("UserController/profil"));
+    }
 
 }

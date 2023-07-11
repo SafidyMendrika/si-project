@@ -10,6 +10,11 @@ class PackController extends CI_Controller
         $this->load->model("Transaction");
         $this->load->model("User");
         $this->load->model("Wallet");
+
+        if ($this->session->has_userdata("data")){
+            $amount = $this->Wallet->getAmount($this->session->userdata("data")["id"]);
+            $this->session->set_userdata("amount",$amount);
+        }
     }
     function pack()
     {

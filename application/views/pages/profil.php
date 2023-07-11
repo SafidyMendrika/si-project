@@ -1,3 +1,6 @@
+<?php
+$this->load->model("User");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,6 +67,9 @@
                         porte-monnaie: <?= $element["wallet"]; ?> Ar
                     </p>
                     <a href="<?= base_url("UserController/modificationProfil") ?>" ><button type="button" class="btn btn-warning" >Modifier</button></a>
+                    <?php if ($this->User->isGold($this->session->userdata("data")["id"]) == false)  {?>
+                    <a href="<?= base_url("UserController/buyGold") ?>" ><button type="button" class="btn btn-success" >Acheter l'offre Gold : 20 000 Ar</button></a>
+                    <?php } ?>
                 </div>
                 </div>
             </div>

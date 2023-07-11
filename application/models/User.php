@@ -25,6 +25,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
       }
 
+      function isGold($id_user)
+      {
+        $query = "SELECT * from golden_user where id_user = $id_user";
+
+        $q = $this->db->query($query);
+
+        if ($q->num_rows() == 0 ){
+          return false;
+        }else{
+          return true;
+        }
+
+      }
       public function singIn($mail, $mdp, $is_google, $name)
       {
         $sql = "insert into users values(default,%s,%s,%g,%s,%g)";

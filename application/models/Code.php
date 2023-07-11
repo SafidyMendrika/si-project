@@ -35,15 +35,6 @@ class Code extends CI_Model
 
     }
 
-    function accept($id_code)
-    {
-        $sql="insert"
-    }
-    function deny($id_code)
-    {
-
-    }
-
     function generateCode(){
         $debut = 0;
         $answer="";
