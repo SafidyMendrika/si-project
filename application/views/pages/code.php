@@ -50,12 +50,11 @@ function getStatusLabel($status)
         <div class="right" style="border: none;width: 650px">
             <div class="head" ><h2>Entrez votre code à 9 chiffres </h2></div>
             <section class="form">
-                <form class="row g-3 needs-validation w-100 p-3" id="form" novalidate>
+                <form action="<?= base_url("UserController/insertCode") ?>" method="post" class="row g-3 needs-validation w-100 p-3" id="form" novalidate>
                     <div class="col-md-5 input" >
                         <div class="form-outline">
-                            <input type="text" class="form-control" name="mail" id="validationCustom01" value="" required />
+                            <input type="text" class="form-control" name="code" id="validationCustom01" value="" required />
                             <label for="validationCustom01" class="form-label">XXXXXXXXX</label>
-                            <div class="valid-feedback">ok !</div>
                         </div>
                     </div>
                     <div class="col-md-5 col-xs-5">
@@ -103,33 +102,6 @@ function getStatusLabel($status)
 </script>
 <!-- Custom scripts -->
 <script type="text/javascript" defer>
-    (() => {
-        'use strict';
-
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        const forms = document.querySelectorAll('.needs-validation');
-
-        // Loop over them and prevent submission
-        Array.prototype.slice.call(forms).forEach((form) => {
-            form.addEventListener('submit', (event) => {
-                if (!form.checkValidity()) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-            }, false);
-        });
-    })();
-
-    const form = document.getElementById("form");
-
-    form.addEventListener("submit",(e)=>{
-        e.preventDefault();
-
-        if (form.checkValidity()){
-            login(form);
-        }
-    })
 </script>
 
 </body>

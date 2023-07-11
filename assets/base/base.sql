@@ -105,3 +105,8 @@ CREATE TABLE user_subscription(
     id_subscription INTEGER REFERENCES subscription(id_subscription),
     date date default current_date
 );
+
+
+CREATE TABLE golden_user(
+    id_user INTEGER REFERENCES users(id_user)
+);

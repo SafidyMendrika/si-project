@@ -16,14 +16,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         if ($query->num_rows() == 0) {
           return false;
         } else {
-          $row = $query->row_array();
+          $row = $query->result_array();
+
           return array(
-              "id" => $row["id_user"],
-              "name" => $row['name']
+              "id" => $row[count($row) -1]["id_user"],
+              "name" => $row[count($row) -1]['name']
           );
         }
       }
 
+      function isGold($id_user)
+      {
+        $query = "SELECT * from golden_user where id_user = $id_user";
+
+        $q = $this->db->query($query);
+
+        if ($q->num_rows() == 0 ){
+          return false;
+        }else{
+          return true;
+        }
+
+      }
       public function singIn($mail, $mdp, $is_google, $name)
       {
         $sql = "insert into users values(default,%s,%s,%g,%s,%g)";
@@ -107,6 +121,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       echo $sql;
       $this->db->query($sql);
     }
+
 
     public function getIMC($poids, $taille){
       return ($poids)/(($taille/100) * ($taille/100));
