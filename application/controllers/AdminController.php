@@ -6,6 +6,7 @@ class AdminController extends  CI_Controller
     {
         parent::__construct();
         $this->load->model("Admin");
+        $this->load->model("Code");
     }
 
     function index()
@@ -14,7 +15,10 @@ class AdminController extends  CI_Controller
     }
     function home()
     {
-        $this->load->view("pages/admin_home");
+        $data['alluser'] = $this->Admin->getNbUser();
+        $data['perte'] = $this->Admin->getNbUserGoal(1);
+        $data['prise'] = $this->Admin->getNbUserGoal(2);
+        $this->load->view("pages/admin_home", $data);
     }
 
     public function getDemand(){
@@ -45,6 +49,12 @@ class AdminController extends  CI_Controller
         }
  
     }
+    
+    public function codeInsertion(){
+        $code = $this->Code->generateCode();
+        $valeur= 24000;
+        $this->Code->insertCodeBack($code, $valeur);
+    }
 
     function code()
     {
@@ -67,5 +77,4 @@ class AdminController extends  CI_Controller
               echo json_encode($data);
             }
           }
-    
 }

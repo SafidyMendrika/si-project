@@ -77,6 +77,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       echo $sql;
       $this->db->query($sql);
     }
+
+    public function getIMC($poids, $taille){
+      return ($poids)/($taille * $taille);
+    }
   }
 
     
