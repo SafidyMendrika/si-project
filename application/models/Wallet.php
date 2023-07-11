@@ -22,4 +22,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }  
       }
 
+        function getAmount($idUser)
+        {
+            $q = $this->db->from("wallet")->select("value")->where("id_user",$idUser)->get();
+
+            return $q->result_array()[0]["value"];
+        }
+
     }

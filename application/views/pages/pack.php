@@ -36,6 +36,9 @@ function countKcal($plats,$type)
     <!-- MDB -->
     <link rel="stylesheet" href="<?= base_url("assets/css/mdb.min.css") ?>" />
     <link rel="stylesheet" href="<?= base_url("assets/css/pack.css") ?>" />
+
+    <link ref="stylesheet" type="text/css" href="<?= base_url("assets/js/snackbar") ?>/dist/snackbar.min.css" />
+    <script src="<?= base_url("assets/js/snackbar") ?>/dist/snackbar.min.js"></script>
 </head>
 <body style="padding-top: 60px">
 <?php $this->load->view("partials/header") ?>
@@ -117,6 +120,7 @@ function countKcal($plats,$type)
 
         xhr.addEventListener("load",(e)=>{
             console.log(e.target.responseText);
+            Snackbar.show({text : "Pack acheté avec succès",pos: 'bottom-left'});
         })
 
         form.set("id_pack",buyBtn.dataset.idPack);
@@ -127,6 +131,9 @@ function countKcal($plats,$type)
 
         xhr.send(form);
     }
+    (
+        Snackbar.show({text : "loolo"});
+    )();
 </script>
 </body>
 </html>

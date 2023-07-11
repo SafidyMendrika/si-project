@@ -47,7 +47,7 @@ function getStatusLabel($status)
         <!-- Carousel wrapper -->
 
         <!-- Carousel wrapper -->
-        <div class="right" style="border: 2px solid #0c622e;width: 650px">
+        <div class="right" style="border: none;width: 650px">
             <div class="head" ><h2>Entrez votre code à 9 chiffres </h2></div>
             <section class="form">
                 <form class="row g-3 needs-validation w-100 p-3" id="form" novalidate>
