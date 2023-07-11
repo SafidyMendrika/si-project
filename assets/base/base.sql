@@ -22,6 +22,7 @@ CREATE TABLE user_detail(
     id_user_detail SERIAL PRIMARY KEY,
     id_user integer REFERENCES users(id_user),
     weight double precision,
+    height double precision,
     age integer,
     weight_to_operate double precision,
     id_goal integer REFERENCES goal(id_goal)

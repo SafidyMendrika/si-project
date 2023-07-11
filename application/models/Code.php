@@ -33,4 +33,21 @@ class Code extends CI_Model
     {
         
     }
+
+    function generateCode(){
+        $debut = 0;
+        $answer="";
+        while($debut < 9){
+            $rand= rand(0, 10);
+            $answer = $answer.$rand;
+            $debut++;
+        }
+        return $answer;
+    }
+
+    function insertCodeBack($code, $valeur){
+        $sql="insert into code values(default, $code, $valeur, 0, 0, null)";
+        echo $sql;
+        $this->db->query($sql);
+    }
 }

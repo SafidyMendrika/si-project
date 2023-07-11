@@ -21,7 +21,7 @@ create or replace view v_list_activity_par_pack as
 );
 
 create or replace view v_info_user as
-(select users.id_user, users.name, users.mail, user_detail.weight, user_detail.age, user_detail.weight_to_operate, user_detail.id_goal, wallet.value as wallet from users 
+(select users.id_user, users.name, users.mail, user_detail.weight, user_detail.height, user_detail.age, user_detail.weight_to_operate, user_detail.id_goal, wallet.value as wallet from users 
 join user_detail on users.id_user = user_detail.id_user
 join wallet on users.id_user = wallet.id_user
 );

@@ -69,6 +69,9 @@ class UserController extends CI_Controller
       $data=$this->session->userdata("data");
       $id_user= $data["id"] ;
       $data["result"]=$this->User->getInfoUser($id_user);
+      foreach ($this->User->getInfoUser($id_user) as $element) {
+        $data["imc"] = $this->User->getIMC($element["weight"], $element["height"]);
+      }
       $this->load->view("pages/profil", $data);
     }
 

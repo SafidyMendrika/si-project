@@ -54,15 +54,15 @@
         <div class="row">
             <div class="col-md-4">
                 <h4>Nombre d'utilisateur</h4>
-                    <p>22 personnes</p>
+                    <p><?= $alluser; ?> personnes</p>
             </div>
             <div class="col-md-4">
                 <h4>Programme de perte de poids</h4>
-                    <p>10 personnes</p>
+                    <p><?= $perte; ?> personnes</p>
             </div>
             <div class="col-md-4">
                 <h4>Programme de prise de poids</h4>
-                    <p>10 personnes</p>
+                    <p><?= $prise; ?> personnes</p>
             </div>
         </div>
         <div class="row">
