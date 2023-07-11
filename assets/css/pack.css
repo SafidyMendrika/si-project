@@ -1,0 +1,9 @@
+main{
+    padding: 4% 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.card{
+    margin: 2%;
+}

@@ -22,6 +22,8 @@
 </head>
 <body style="padding-top: 50px">
 <?php $this->load->view("partials/header") ?>
+<?php $this->load->view("partials/loader") ?>
+
 
 <main style="display: flex;flex-wrap: wrap">
     <div class="card" style="margin: 2%;width: 450px;height: 500px"  >

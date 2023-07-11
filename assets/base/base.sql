@@ -38,6 +38,7 @@ CREATE TABLE code(
     code VARCHAR(50),
     value double precision,
     is_used integer,
+    id_user integer REFERENCES users(id_user),
     status integer
 );
 
@@ -67,7 +68,8 @@ CREATE TABLE pack_user(
     git _user SERIAL PRIMARY KEY,
     id_pack integer REFERENCES pack(id_pack),
     id_user integer REFERENCES users(id_user),
-    duration integer
+    duration integer,
+    price double precision
 );
 
 CREATE TABLE pack_menu(

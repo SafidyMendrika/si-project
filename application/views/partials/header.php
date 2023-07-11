@@ -45,22 +45,27 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <?php if ($this->session->has_userdata("data")){ ?>
-                    <li class="nav-item"  style="margin-left: 5%">
-                        <a href="<?= base_url("GoalController") ?>" >Objectifs</a>
+                <?php if ($this->session->has_userdata("data") && $this->session->userdata("data")["type"] == "u"){ ?>
+                    <li class="nav-item"  style="margin-left: 5%;padding: 3%">
+                        <a href="<?= base_url("GoalController") ?>" > Objectifs </a>
                     </li>
 
-                    <li class="nav-item" style="margin-left: 5%">
-                        <a href="<?= base_url("GoalController") ?>" >Pack</a>
+                    <li class="nav-item" style="margin-left: 5%;padding: 3%">
+                        <a href="<?= base_url("PackController/pack") ?>" > Pack </a>
+                    </li>
+                    <li class="nav-item" style="margin-left: 5%;padding: 3%">
+                        <a href="<?= base_url("PackController/myPack") ?>" > Mes pack </a>
+                    </li>
+                    <li class="nav-item" style="margin-left: 5%;padding: 3%">
+                        <a href="<?= base_url("UserController/code") ?>" > Code </a>
                     </li>
                 <?php } ?>
 
             </ul>
             <?php if($this->session->has_userdata("data")){ ?>
                 <div class="btn-group shadow-0" role="group">
-                    <a href="<?= base_url("LoginController") ?>" ><button type="button" class="btn btn-ligth" ><?= $this->session->userdata("data")["name"] ?></button></a>
+                    <a href="<?= base_url("UserController/profil") ?>" ><button type="button" class="btn btn-ligth" ><?= $this->session->userdata("data")["name"] ?></button></a>
                     <a href="<?= base_url("LoginController/logout") ?>" ><button type="button" class="btn btn-danger" >Se Deconnecter</button></a>
-
                 </div>
             <?php }else{ ?>
                 <div class="btn-group shadow-0" role="group">

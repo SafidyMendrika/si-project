@@ -13,12 +13,17 @@ class PDFController extends CI_Controller
 
     public function exportPDF(){
 
-      $this->load->model("User");
+      $nomfichier="index";
+      $this->load->helper('file');
+      $path= APPPATH.'views/'.$nomfichier;
+      $filename=read_file($path);
       $pdf = new FPDF();
       $pdf->AddPage();
       $pdf->SetFont('Arial','B',16);
-      $pdf->Cell(40,10,'Hello World !');
-      $pdf->Output();
+      $pdf->WriteHTML($filename);
+      $filenamePDF=$nomfichier . ".pdf";
+      //$pdf->Cell(40,10,'Hello World !');
+      $pdf->Output($filenamePDF,'D');
     }
   
 }

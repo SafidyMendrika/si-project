@@ -37,9 +37,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $query=$this->db->query($sql);
     
       }
-      
-      
+
+
+      function getDetals($id_user)
+      {
+        $q = $this->db->from("user_detail")->select("*")->where("id_user",$id_user)->get();
+
+        if ($q->num_rows() == 0){
+          return false;
+        }
+        return $q->result_array()[0];
+      }
+
+      public function getInfoUser($id_user){
+        $q = $this->db->from("v_info_user_complet")->select("*")->where("id_user",$id_user)->get();
+        
+        return $q->result_array();
+      }  
+
+    public function insertWallet($id_user,$value){
+      $sql="insert into wallet values(default,%g,%g)";
+      $sql=sprintf($sql,$id_user,$value);
+      echo $sql;
+      $this->db->query($sql);
     }
+  }
 
     
 ?>  

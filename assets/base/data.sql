@@ -11,14 +11,17 @@ INSERT INTO goal (image_path, title, description, status) VALUES
 
 INSERT INTO user_detail(id_user, weight, age, weight_to_operate, id_goal) VALUES
 (4, 90, 25, 10, 1),
-(4, 56, 18, 8, 2);
+(5, 56, 18, 8, 2);
 
 INSERT INTO wallet(id_user, value) VALUES
+(1, 0),
+(2, 0),
+(3, 0),
 (4, 0),
 (5, 0);
 
 INSERT INTO code (code, value, is_used, status) VALUES
-('123456789', 50000, 0, 0),
+('  ', 50000, 0, 0),
 ('987654321', 75000, 0, 10),
 ('147258369', 25000, 0, 0),
 ('369258147', 20000, 0, 20),

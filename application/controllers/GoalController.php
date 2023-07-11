@@ -15,4 +15,6 @@ class GoalController extends CI_Controller
 
         $this->load->view("pages/goal");
     }
+
+    
 }

@@ -38,7 +38,22 @@ class ActivityController extends CI_Controller
 
     public function updateActivity(){
       $this->load->model("Activity");
-      $kcal=$this->input->post('kcal')
+      $label=$this->input->post('label');
+      $kcal=$this->input->post('kcal');
+      $id_activity=$this->input->post('id_activity');
+      // $label='yoga';
+      // $kcal='66';
+      // $id_activity=16;
+      $this->Activity->updateActivity($label,$kcal,$id_activity);
+    
+    }
+    public function getActivityById(){
+      $this->load->model("Activity");
+      $id_activity=$this->input->get('id_activity');
+      //$id_activity=1;
+      $data=array();
+      $data["result"]=$this->Activity->getActivityById($id_activity);
+      echo json_encode($data);
     }
 
 }

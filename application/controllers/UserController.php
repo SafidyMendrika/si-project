@@ -7,6 +7,7 @@ class UserController extends CI_Controller
         parent::__construct();
 
         $this->load->model('User');
+        $this->load->model('Code');
 
     }
     function index()
@@ -22,6 +23,8 @@ class UserController extends CI_Controller
 
       if($mail !=null && $mdp !=null){
         $data =$this->User->loginUser($mail,$mdp);
+          $data["type"] = "u";
+          //$data["type"] = "a"; // admin
 
         $this->session->set_userdata("data",$data);
 
@@ -41,6 +44,7 @@ class UserController extends CI_Controller
       }
     }
 
+
     public function getGoal(){
       $this->load->model("User");
       $data=array();
@@ -49,18 +53,29 @@ class UserController extends CI_Controller
     }
 
     public function insertGoal(){
-      $data=array();
-      $id_user=$this->input->post('id_user');
-      $weight=$this->input->post('weight');
-      $age=$this->input->post('age');
-      $weight_to_operate=$this->input->post('weight_to_operate');
-      $id_goal=$this->input->post('id_goal');
-      if($id_user !=null && $weight !=null && $age !=null && $weight_to_operate !=null && $id_goal !=null){
-        $this->User->insertGoal($id_user,$weight,$age,$weight_to_operate,$id_goal);
-        $data["page"]="";
-        $data["titre"]="";
+      $data=$this->session->userdata("data");
+      $id_user= $data["id"] ;
+      $id_goal=$this->input->get('id_goal');
+
+      /*if($id_user !=null && $weight !=null && $age !=null && $weight_to_operate !=null && $id_goal !=null){
+        //$this->User->insertGoal($id_user,$weight,$age,$weight_to_operate,$id_goal);
+
         $this->load->view("Home",$data);
-      }
+      }*/
+    }
+
+    function profil()
+    {
+      $data=$this->session->userdata("data");
+      $id_user= $data["id"] ;
+      $data["result"]=$this->User->getInfoUser($id_user);
+      $this->load->view("pages/profil", $data);
+    }
+
+    function code()
+    {
+        $data["codes"] = $this->Code->findAll();
+        $this->load->view("pages/code",$data);
     }
 
 
