@@ -31,52 +31,8 @@
 <main style="margin-top: 4%">
     <div class="container" >
         <!-- Carousel wrapper -->
-        <div id="carouselMaterialStyle" class="carousel slide carousel-fade left" data-mdb-ride="carousel">
-            <!-- Indicators -->
-            <div class="carousel-indicators">
-                <button type="button" data-mdb-target="#carouselMaterialStyle" data-mdb-slide-to="0" class="active" aria-current="true"
-                        aria-label="Slide 1"></button>
-                <button type="button" data-mdb-target="#carouselMaterialStyle" data-mdb-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-mdb-target="#carouselMaterialStyle" data-mdb-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-
-            <!-- Inner -->
-            <div class="carousel-inner rounded-5 shadow-4-strong">
-                <!-- Single item -->
-                <div class="carousel-item active">
-                    <img src="<?= base_url("assets/img/banane.png") ?>" class="d-block w-100"
-                         alt="Sunset Over the City" />
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Mangez Sainement</h5>
-                        <p>On vous accompagne pour cela</p>
-                    </div>
-                </div>
-                <!-- Single item -->
-                <div class="carousel-item active">
-                    <img src="<?= base_url("assets/img/fruit.jpg") ?>" class="d-block w-100 h-100"
-                         alt="Sunset Over the City" />
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Mangez Sainement</h5>
-                        <p>On vous accompagne pour cela</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Inner -->
-
-            <!-- Controls -->
-            <button class="carousel-control-prev" type="button" data-mdb-target="#carouselMaterialStyle" data-mdb-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-mdb-target="#carouselMaterialStyle" data-mdb-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-
-        <!-- Carousel wrapper -->
-        <div class="right" >
-            <div class="head" ><h2>Connectez vous </h2></div>
+        <div class="right" style="border:2px solid #28436e;border-right: none;" >
+            <div class="head" style="color: #28436e" ><h2>Admin </h2></div>
             <section class="form">
                 <form class="row g-3 needs-validation" id="form" novalidate>
                     <div class="col-md-5 input">
@@ -97,8 +53,12 @@
                         <button class="btn btn-primary" type="submit">Se Connecter</button>
                     </div>
                 </form>
-                <h4 class="head">Ou connectez vous avec Google</h4>
+                <h4 class="head"></h4>
             </section>
+        </div>
+        <!-- Carousel wrapper -->
+        <div id="carouselMaterialStyle" class="left" data-mdb-ride="carousel">
+            <img src="<?= base_url("assets/img/admin.jpg") ?>" style="width: 100%;height: 100%">
         </div>
     </div>
 </main>

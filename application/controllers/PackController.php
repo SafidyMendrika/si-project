@@ -7,6 +7,8 @@ class PackController extends CI_Controller
     {
         parent::__construct();
         $this->load->model("Pack");
+        $this->load->model("Transaction");
+        $this->load->model("User");
     }
     function pack()
     {
@@ -39,9 +41,24 @@ class PackController extends CI_Controller
     echo json_encode($data);
   }
 
-    function myPack()
+    function buyPack()
     {
-        $this->load->view("pages/my_pack");
+        $idPack = $this->input->post("id_pack");
+        $idUser = $this->session->userdata("data")["id"];
+
+        $nbDay = $this->input->post("nb_day");
+        $totalPrice = $this->input->post("total_price");
+
+
+        try {
+            $this->Pack->buyPack($idPack,$idUser,$nbDay,$totalPrice);
+
+            $this->Transaction->transate("Achat d'un pack",$totalPrice);
+        }catch (Exception $e){
+            echo "false";
+        }
+
+        //$this->load->view("pages/my_pack");
 
     }
 }

@@ -16,4 +16,5 @@ function createXHR(){
     return xhr;
 }
 
+//var host = "http://s4-project.alwaysdata.net/";
 var host = "http://localhost/si-project/";

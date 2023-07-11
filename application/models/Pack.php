@@ -36,6 +36,22 @@ class Pack extends CI_Model{
     return ceil(abs($answer));
   }
 
+    function buyPack($idPack,$idUser,$nbDay,$totalPrice)
+    {
+        $query = "INSERT INTO pack_user( id_pack , id_user , duration , price) VALUES(%s,%s,%s,%s) ";
+        $query = sprintf($query,$this->db->escape($idPack),$this->db->escape($idUser),$this->db->escape($nbDay),$this->db->escape($totalPrice));
+
+        try {
+            $this->db->query($query);
+        }catch (Exception $e ){
+            return false;
+        }
+
+        return true;
+
+        return false;
+    }
+
   public function packs_for($id_user){
       $usr = new User();
       $act = $this->Activity;

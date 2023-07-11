@@ -38,7 +38,7 @@ class ActivityController extends CI_Controller
 
     public function updateActivity(){
       $this->load->model("Activity");
-      $kcal=$this->input->post('kcal')
+      $kcal=$this->input->post('kcal');
     }
 
 }

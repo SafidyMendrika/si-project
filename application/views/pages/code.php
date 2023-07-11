@@ -4,7 +4,7 @@ function getStatusLabel($status)
     if ($status == "0"){
         return '<span class="badge bg-success">disponible</span>';
     }else if($status == "10"){
-        return '<span class="badge bg-primary">en attente</span>';
+        return '<span class="badge bg-warning">en attente</span>';
     }else if($status == "20"){
         return '<span class="badge bg-danger">indisponible</span>';
     }
@@ -42,10 +42,31 @@ function getStatusLabel($status)
 
 
 
-<main style="margin-top: 4%">
-    <div class="container" >
+<main style="margin-top: 100px">
+    <div class="container" style="display:flex;flex-wrap: wrap;justify-content: space-around;align-items: center" >
         <!-- Carousel wrapper -->
-        <div id="carouselMaterialStyle" class="carousel slide carousel-fade left" data-mdb-ride="carousel" style="background-color:transparent">
+
+        <!-- Carousel wrapper -->
+        <div class="right" style="border: 2px solid #0c622e;width: 650px">
+            <div class="head" ><h2>Entrez votre code à 9 chiffres </h2></div>
+            <section class="form">
+                <form class="row g-3 needs-validation w-100 p-3" id="form" novalidate>
+                    <div class="col-md-5 input" >
+                        <div class="form-outline">
+                            <input type="text" class="form-control" name="mail" id="validationCustom01" value="" required />
+                            <label for="validationCustom01" class="form-label">XXXXXXXXX</label>
+                            <div class="valid-feedback">ok !</div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-xs-5">
+                        <button class="btn btn-primary" type="submit">Entrer</button>
+                    </div>
+                </form>
+                <h4 class="head"></h4>
+            </section>
+        </div>
+
+        <div id="carouselMaterialStyle" class="carousel slide carousel-fade left" data-mdb-ride="carousel" style="background-color:transparent;width: 600px">
             <table class="table">
                 <thead>
                 <tr>
@@ -71,25 +92,7 @@ function getStatusLabel($status)
             </table>
         </div>
 
-        <!-- Carousel wrapper -->
-        <div class="right" style="border: 2px solid #0c622e;">
-            <div class="head" ><h2>Entrez votre code à 9 chiffres </h2></div>
-            <section class="form">
-                <form class="row g-3 needs-validation" id="form" novalidate>
-                    <div class="col-md-5 input">
-                        <div class="form-outline">
-                            <input type="text" class="form-control" name="mail" id="validationCustom01" value="" required />
-                            <label for="validationCustom01" class="form-label">XXXXXXXXX</label>
-                            <div class="valid-feedback">ok !</div>
-                        </div>
-                    </div>
-                    <div class="col-md-5 col-xs-5">
-                        <button class="btn btn-primary" type="submit">Entrer</button>
-                    </div>
-                </form>
-                <h4 class="head"></h4>
-            </section>
-        </div>
+
     </div>
 </main>
 <!-- MDB -->

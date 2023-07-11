@@ -46,11 +46,7 @@
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <?php if ($this->session->has_userdata("data") && $this->session->userdata("data")["type"] == "u"){ ?>
-                    <li class="nav-item"  style="margin-left: 5%;padding: 3%">
-                        <a href="<?= base_url("GoalController") ?>" > Objectifs </a>
-                    </li>
-
-                    <li class="nav-item" style="margin-left: 5%;padding: 3%">
+                   <li class="nav-item" style="margin-left: 5%;padding: 3%">
                         <a href="<?= base_url("PackController/pack") ?>" > Pack </a>
                     </li>
                     <li class="nav-item" style="margin-left: 5%;padding: 3%">
