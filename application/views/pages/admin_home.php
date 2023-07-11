@@ -11,7 +11,7 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="<?= base_url("assets/css/login.css") ?>">
+
     <!-- Google Fonts Roboto -->
     <link
         rel="stylesheet"
@@ -23,32 +23,13 @@
 
 </head>
 
-<body >
+<body style="padding: 5%">
 <?php $this->load->view("partials/loader") ?>
 
-<!--Main Navigation-->
-<header>
-    <!-- Sidebar -->
-    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
-        <div class="position-sticky">
-            <div class="list-group list-group-flush mx-3 mt-4">
-                <a href="#" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true">
-                    <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-money-bill fa-fw me-3"></i><span>Chiffres d'affaire</span></a>
-                <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-money-bill fa-fw me-3"></i><span>Chiffres d'affaire</span></a>
-                <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-money-bill fa-fw me-3"></i><span>Chiffres d'affaire</span></a>
-                <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-money-bill fa-fw me-3"></i><span>Chiffres d'affaire</span></a>
-            </div>
-        </div>
-    </nav>
-    <!-- Sidebar -->
-
-    <!-- Navbar -->
     <?php $this->load->view("partials/header") ?>
-    <!-- Navbar -->
-</header>
 
+
+<main style="margin-top: 58px">
     <div class="row">
         <div class="col-md-4">
             <h4>Nombre d'utilisateur</h4>
@@ -80,6 +61,7 @@
         </div>
     </div>
 
+</main>
 
 <script src="<?= base_url("assets/js/chart-js/node_modules/chart.js/dist/chart.umd.js") ?>"></script>
 <script>

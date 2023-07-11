@@ -1,3 +1,4 @@
+
 <link rel="icon" href="<?= base_url("assets/img/diet-tracker-pin.png") ?>" type="image/x-icon" />
 <title>
     DIET-TRACKER
@@ -55,6 +56,25 @@
                     <li class="nav-item" style="margin-left: 5%;padding: 3%">
                         <a href="<?= base_url("UserController/code") ?>" > Code </a>
                     </li>
+                <?php }else{ ?>
+                    <li class="nav-item" style="margin-left: 7%;padding: 3%">
+                        <a href="<?= base_url("PackController/pack") ?>" > Dashboard </a>
+                    </li>
+                    <li class="nav-item" style="margin-left: 7%;padding: 3%">
+                        <a href="<?= base_url("PackController/myPack") ?>"  >Chiffres </a>
+                    </li>
+                    <li class="nav-item" style="margin-left: 7%;padding: 3%">
+                        <a href="<?= base_url("UserController/code") ?>" > Packs </a>
+                    </li>
+
+                    <li class="nav-item" style="margin-left: 7%;padding: 3%">
+                        <a href="<?= base_url("UserController/code") ?>" > Régimes </a>
+                    </li>
+                    <li class="nav-item" style="margin-left: 7%;padding: 3%">
+                        <a href="<?= base_url("AdminController/code") ?>" > Code </a>
+                    </li>
+
+
                 <?php } ?>
 
             </ul>
@@ -66,7 +86,7 @@
             <?php }else{ ?>
                 <div class="btn-group shadow-0" role="group">
                     <a href="<?= base_url("LoginController") ?>" ><button type="button" class="btn btn-ligth" >Se Connecter</button></a>
-                    <button type="button" class="btn btn-success" >S'inscrire</button>
+                    <a href="<?= base_url("UserController/createAccount") ?>" ><button type="button" class="btn btn-success" >S'inscrire</button></a>
                 </div>
             <?php } ?>
         </div>

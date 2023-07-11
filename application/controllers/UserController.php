@@ -8,14 +8,19 @@ class UserController extends CI_Controller
 
         $this->load->model('User');
         $this->load->model('Code');
+        $this->load->model('Wallet');
 
     }
     function index()
     {
         $this->load->view("Home");
-
     }
 
+    function createAccount($page = 1)
+    {
+        $data["page"] = $page;
+        $this->load->view("pages/sign_up",$data);
+    }
     public function loginUser(){
       $data=array();
       $mail=$this->input->post('mail');
@@ -33,15 +38,16 @@ class UserController extends CI_Controller
     }
 
     public function singIn(){
-      $this->load->model("User");
-      $data=array();
+
       $mail=$this->input->post('mail');
       $mdp=$this->input->post('mdp');
-      $is_google=$this->input->post('is_google');
+      $is_google=0;
       $name=$this->input->post('name');
       if($mail!=null && $mdp !=null && $name !=null){
         $this->User->singIn($mail,$mdp,$is_google,$name);
+          redirect(base_url("UserController/createAccount/2"));
       }
+      redirect($_SERVER["HTTP_REFERER"]);
     }
 
 
@@ -72,6 +78,14 @@ class UserController extends CI_Controller
       $this->load->view("pages/profil", $data);
     }
 
+    function insertDetals()
+    {
+        $q = $this->db->from("users")->select("max(id_user)")->get();
+        $id = $q->result_array()[0]["max"];
+
+        
+
+    }
     public function modificationProfil(){
       $this->load->view("pages/modificationprofil");
     }

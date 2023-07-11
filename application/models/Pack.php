@@ -52,7 +52,6 @@ class Pack extends CI_Model{
         }catch (Exception $e ){
             return false;
         }
-
         return true;
 
         return false;

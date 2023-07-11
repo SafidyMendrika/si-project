@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
     class Wallet extends CI_Model{
-
-
       public function pendingDemand($code,$id_user){
         $this->db->select("*")->from("code")->where('code',$code);
         $query=$this->db->get();
@@ -28,5 +26,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             return $q->result_array()[0]["value"];
         }
+        function initialize($idUser)
+        {
+            $query = "INSERT INTO wallet VALUES(default,$idUser,0)";
 
+            $q = $this->db->query($query);
+        }
+        function setAmount($idUser,$amount)
+        {
+            $query  = "UPDATE wallet set value = $amount where id_user=$idUser";
+
+            $this->db->query($query);
+        }
     }

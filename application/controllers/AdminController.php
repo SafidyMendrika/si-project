@@ -39,6 +39,11 @@ class AdminController extends  CI_Controller
  
     }
 
+    function code()
+    {
+        $this->load->view("pages/admin_code");
+    }
+
     public function loginAdmin(){
     
             $data=array();

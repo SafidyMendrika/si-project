@@ -1,6 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
     class User extends CI_Model{
+      function __construct()
+      {
+        parent::__construct();
+        $this->load->model("Wallet");
+      }
 
       public function loginUser($mail,$mdp){
         $sql="select * from users where mail=%s and mdp=%s";
@@ -20,8 +25,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       public function singIn($mail,$mdp,$is_google,$name){
         $sql="insert into users values(default,%s,%s,%g,%s,%g)";
         $sql = sprintf($sql,$this->db->escape($mail),$this->db->escape(md5($mdp)),$is_google,$this->db->escape($name),0);
-        echo $sql;
         $this->db->query($sql);
+
+        $q = $this->db->from("users")->select("max(id_user)")->get();
+        $id = $q->result_array()[0]["max"];
+
+        $this->Wallet->initialize($id);
+        
       }
 
       public function getGoal(){

@@ -131,9 +131,7 @@ function countKcal($plats,$type)
 
         xhr.send(form);
     }
-    (
-        Snackbar.show({text : "loolo"});
-    )();
+
 </script>
 </body>
 </html>
