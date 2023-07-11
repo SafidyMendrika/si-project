@@ -38,7 +38,8 @@ CREATE TABLE code(
     code VARCHAR(50),
     value double precision,
     is_used integer,
-    status integer
+    status integer,
+    id_user integer REFERENCES users(id_user)
 );
 
 CREATE TABLE menu(
@@ -64,7 +65,7 @@ CREATE TABLE pack(
 );
 
 CREATE TABLE pack_user(
-    git _user SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     id_pack integer REFERENCES pack(id_pack),
     id_user integer REFERENCES users(id_user),
     duration integer,
@@ -82,4 +83,10 @@ CREATE TABLE pack_activity(
     id_pack integer REFERENCES pack(id_pack),
     id_activity integer REFERENCES activity(id_activity)
 
+);
+CREATE TABLE transaction(
+    id SERIAL PRIMARY KEY,
+    label VARCHAR(100),
+    amount double precision,
+    date date default current_date
 );

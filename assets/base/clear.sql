@@ -9,3 +9,4 @@ drop table pack_activity cascade;
 drop table pack cascade;
 drop table menu cascade;
 drop table activity cascade;
+drop table transaction cascade;
