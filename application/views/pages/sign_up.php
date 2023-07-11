@@ -83,7 +83,7 @@
                     </div>
                     <div class="col-md-5 m-3">
                         <div class="form-outline">
-                            <input type="number" class="form-control" name="taille" id="validationCustom03" value="" required />
+                            <input type="text" class="form-control" name="taille" id="validationCustom03" value="" placeholder="ex: 1.80"  required />
                             <label for="validationCustom03" class="form-label">Taille</label>
                         </div>
                     </div>
