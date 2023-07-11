@@ -10,8 +10,8 @@ INSERT INTO goal (image_path, title, description, status) VALUES
 ('', 'prise de poids', ' Nous vous aiderons à choisir des aliments nutritifs et caloriques, tels que des sources de protéines maigres, des grains entiers, des fruits secs et des graisses saines. En adoptant une approche équilibrée, vous pourrez prendre du poids tout en préservant votre santé globale.', 10);
 
 INSERT INTO user_detail(id_user, weight, height, age, weight_to_operate, id_goal) VALUES
-(4, 90, 1.82, 25, 10, 1),
-(5, 56, 1.72, 18, 8, 2);
+(4, 90, 182, 25, 10, 1),
+(5, 56, 172, 18, 8, 2);
 
 INSERT INTO wallet(id_user, value) VALUES
 (1, 0),

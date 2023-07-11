@@ -100,7 +100,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     }
 
     public function getIMC($poids, $taille){
-      return ($poids)/($taille * $taille);
+      return ($poids)/(($taille/100) * ($taille/100));
     }
   }
     
