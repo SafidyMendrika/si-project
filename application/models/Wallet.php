@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           $sql="update code set status=10 where code=%s";
           $sql2="update code set id_user=%g where code=%s";
           $sql= sprintf($sql,$this->db->escape($code));
-          $sql= sprintf($sql,$id_user,$this->db->escape($code));
+          $sql2= sprintf($sql2,$id_user,$this->db->escape($code));
           echo $sql;
           echo $sql2;
           $query=$this->db->query($sql);

@@ -26,8 +26,13 @@ class AdminController extends  CI_Controller
     public function demandValidation(){
 
         $id_code=$this->input->post('id_code');
-        //$id_code=2;
-        $this->Admin->demandValidation($id_code);
+        $action=$this->input->post('action');
+        // $id_code=5;
+        // $action=1;
+        if($action == 0){
+            $this->Admin->demandValidation($id_code,$action);
+        }else{
+        $this->Admin->demandValidation($id_code,$action);
         $data=array();
         $data["result"]=$this->Admin->selectValueCode($id_code);
         foreach($data["result"] as $test){
@@ -35,6 +40,8 @@ class AdminController extends  CI_Controller
             $value=$test['value'];
             $this->load->model("User");
             $this->User->insertWallet($id_user,$value);
+        }
+
         }
  
     }

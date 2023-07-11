@@ -50,7 +50,6 @@ class UserController extends CI_Controller
       redirect($_SERVER["HTTP_REFERER"]);
     }
 
-
     public function getGoal(){
       $this->load->model("User");
       $data=array();
