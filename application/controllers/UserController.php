@@ -98,6 +98,14 @@ class UserController extends CI_Controller
 
         redirect(base_url("LoginController"));
     }
+
+    function insertCodde()
+    {
+        $id = $this->session->userdata("data")["id"];
+        $code = $this->input->post("code");
+
+         $this->Code->insertCode($code,$id);
+    }
     public function modificationProfil(){
       $this->load->view("pages/modificationprofil");
     }

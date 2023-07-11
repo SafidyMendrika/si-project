@@ -16,10 +16,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         if ($query->num_rows() == 0) {
           return false;
         } else {
-          $row = $query->row_array();
+          $row = $query->result_array();
+
           return array(
-              "id" => $row["id_user"],
-              "name" => $row['name']
+              "id" => $row[count($row) -1]["id_user"],
+              "name" => $row[count($row) -1]['name']
           );
         }
       }

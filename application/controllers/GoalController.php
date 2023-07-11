@@ -31,7 +31,7 @@ class GoalController extends CI_Controller
 
         $this->User->insertGoal($idUser,$idGoal);
 
-        redirect(base_url());
+        redirect(base_url("PackController/pack"));
     }
 
     

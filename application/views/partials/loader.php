@@ -83,5 +83,5 @@
     });
 </script>
 
-<link ref="stylesheet" type="text/css" href="<?= base_url("assets/js/snackbar") ?>/dist/snackbar.min.css" />
-<script src="<?= base_url("assets/js/snackbar") ?>dist/snackbar.min.js"></script>
+<link ref="stylesheet" type="text/css" href="<?= base_url("assets/js/snackbar") ?>/snackbar.min.css" />
+<script src="<?= base_url("assets/js/snackbar") ?>/snackbar.min.js"></script>

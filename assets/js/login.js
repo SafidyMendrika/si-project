@@ -9,7 +9,7 @@ function login(formDom){
         if (obj != false){
             window.location.href = host+"GoalController";
         }else{
-            Snackbar.show();
+            alert("erreur lors du connection");
         }
     })
     xhr.open("POST",host+"UserController/loginUser");
