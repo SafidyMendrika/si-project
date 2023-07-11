@@ -38,7 +38,7 @@
                       <h5 class="mb-4">Donnez nous votre volonté et on vous donne le résultat</h5>
                       <a
                               class="btn btn-outline-light btn-lg m-2"
-                              href="https://www.youtube.com/watch?v=c9B4TPnak1A"
+                              href="<?= base_url("") ?>"
                               role="button"
                               rel="nofollow"
                               target="_blank"
@@ -46,7 +46,7 @@
                       >
                       <a
                               class="btn btn-outline-light btn-lg m-2"
-                              href="https://mdbootstrap.com/docs/standard/"
+                              href="<?= base_url("LoginController") ?>"
                               target="_blank"
                               role="button"
                       >Se Connecter</a

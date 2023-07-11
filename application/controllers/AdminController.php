@@ -42,10 +42,32 @@ class AdminController extends  CI_Controller
         }
  
     }
-
+    
     public function codeInsertion(){
         $code = $this->Code->generateCode();
         $valeur= 24000;
         $this->Code->insertCodeBack($code, $valeur);
     }
+
+    function code()
+    {
+        $this->load->view("pages/admin_code");
+    }
+
+    public function loginAdmin(){
+    
+            $data=array();
+            $mail=$this->input->post('mail');
+            $mdp=$this->input->post('mdp');
+      
+            if($mail !=null && $mdp !=null){
+              $data =$this->User->loginAdmin($mail,$mdp);
+                //$data["type"] = "u";
+                $data["type"] = "a"; // admin
+      
+              $this->session->set_userdata("data",$data);
+      
+              echo json_encode($data);
+            }
+          }
 }

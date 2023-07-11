@@ -9,6 +9,7 @@ class PackController extends CI_Controller
         $this->load->model("Pack");
         $this->load->model("Transaction");
         $this->load->model("User");
+        $this->load->model("Wallet");
     }
     function pack()
     {
@@ -50,16 +51,37 @@ class PackController extends CI_Controller
         $totalPrice = $this->input->post("total_price");
 
 
+
         try {
+            $amount = $this->Wallet->getAmount($idUser);
+            if ($amount < $totalPrice){
+                echo json_encode(array(
+                    "error" =>"solde insufisant"
+                ));
+                return;
+            }
+
             $this->Pack->buyPack($idPack,$idUser,$nbDay,$totalPrice);
+            $this->Wallet->setAmount($idUser,$amount-$totalPrice);
 
             $this->Transaction->transate("Achat d'un pack",$totalPrice);
+
+            echo json_encode(array(
+               "status" =>"done"
+            ));
+
         }catch (Exception $e){
             echo "false";
         }
 
         //$this->load->view("pages/my_pack");
 
+    }
+    function myPack(){
+        $id_user = $this->session->userdata("data")["id"];
+
+        $data["packs"] = $this->Pack->packOf($id_user);
+        $this->load->view("pages/my_pack",$data);
     }
 }
 

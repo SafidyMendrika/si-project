@@ -26,6 +26,21 @@ class Admin extends  CI_Model
         $query=$this->db->get();
         return $query->result_array();
     }
+    
+    public function loginAdmin($mail,$mdp){
+        $sql="select * from users where mail=%s and mdp=%s and is_admin=1";
+        $sql = sprintf($sql,$this->db->escape($mail),$this->db->escape(md5($mdp)));
+        $query=$this->db->query($sql);
+        if(count($query)==0){
+          return false ;
+        }else{
+          $row=$query->row_array();
+          return array(
+            "id" => $row["id_user"],
+            "name" =>$row['name']
+          );
+        }  
+      }
 
     public function getNbUser(){
         $this->db->select("count(id_user)")->from("users")->where('is_admin',0);

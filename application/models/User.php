@@ -1,6 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
     class User extends CI_Model{
+      function __construct()
+      {
+        parent::__construct();
+        $this->load->model("Wallet");
+      }
 
       public function loginUser($mail,$mdp){
         $sql="select * from users where mail=%s and mdp=%s";
@@ -20,8 +25,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       public function singIn($mail,$mdp,$is_google,$name){
         $sql="insert into users values(default,%s,%s,%g,%s,%g)";
         $sql = sprintf($sql,$this->db->escape($mail),$this->db->escape(md5($mdp)),$is_google,$this->db->escape($name),0);
-        echo $sql;
         $this->db->query($sql);
+
+        $q = $this->db->from("users")->select("max(id_user)")->get();
+        $id = $q->result_array()[0]["max"];
+
+        $this->Wallet->initialize($id);
+        
       }
 
       public function getGoal(){
@@ -30,12 +40,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         return $query->result_array();
       }
       
-      public function insertGoal($id_user,$weight,$age,$weight_to_operate,$id_goal){
-        $sql="insert(id_user,weight,age ,weight_to_operate ,id_goal) into  user_detail values(%g,%g,%g,%g,%g) ";
-        $sql->sprintf($sql,$id_user,$weight,$age,$weight_to_operate,$id_goal);
-        echo $sql;
-        $query=$this->db->query($sql);
-    
+      public function insertGoal($id_user,$id_goal){
+
+        try {
+          $query  = "UPDATE user_detail set id_goal = $id_goal where id_user = $id_user";
+
+          $this->db->query($query);
+
+        }catch (Exception $e){
+          $sql="insert into user_detail(id_user,weight,age ,weight_to_operate ,id_goal) values(%g,%g,%g,%g,%g) ";
+          $sql->sprintf($sql,$id_user,0,0,0,$id_goal);
+          $this->db->query($sql);
+        }
       }
 
       function getDetals($id_user)
@@ -45,7 +61,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         if ($q->num_rows() == 0){
           return false;
         }
-        return $q->result_array()[0];
+        $o =  $q->result_array();
+        return $o[0];
       }
 
       public function getInfoUser($id_user){

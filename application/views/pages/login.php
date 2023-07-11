@@ -98,7 +98,7 @@
                         <button class="btn btn-primary" type="submit">Se Connecter</button>
                     </div>
                 </form>
-                <h4 class="head">Ou connectez vous avec Google</h4>
+                <h4 class="head"></h4>
             </section>
         </div>
     </div>

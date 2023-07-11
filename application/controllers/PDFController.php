@@ -9,21 +9,23 @@ class PDFController extends CI_Controller
     {
         parent::__construct();
         $this->load->library('fpdf');
+        $this->load->model('Pdf');
     }
 
     public function exportPDF(){
 
-      $nomfichier="index";
-      $this->load->helper('file');
-      $path= APPPATH.'views/'.$nomfichier;
-      $filename=read_file($path);
+      $this->load->model("Pack");
+      $this->load->model("Menu");
+      $this->load->model("Activity");
+      $data=array();
+      $id_user=$this->input->get('id_user');
+      //$id_user=1;
+      $data["result"]=$this->Pack->packof($id_user);
       $pdf = new FPDF();
-      $pdf->AddPage();
-      $pdf->SetFont('Arial','B',16);
-      $pdf->WriteHTML($filename);
-      $filenamePDF=$nomfichier . ".pdf";
-      //$pdf->Cell(40,10,'Hello World !');
-      $pdf->Output($filenamePDF,'D');
+
+      $pdf->Image(base_url("assets/img/diet-tracker.png"),10,6,30);
+  
+      $pdf->Output();
     }
   
 }

@@ -1,3 +1,4 @@
+
 <link rel="icon" href="<?= base_url("assets/img/diet-tracker-pin.png") ?>" type="image/x-icon" />
 <title>
     DIET-TRACKER
@@ -44,29 +45,48 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-5 mb-lg-0 w-25">
                 <?php if ($this->session->has_userdata("data") && $this->session->userdata("data")["type"] == "u"){ ?>
                    <li class="nav-item" style="margin-left: 5%;padding: 3%">
-                        <a href="<?= base_url("PackController/pack") ?>" > Pack </a>
+                        <a href="<?= base_url("PackController/pack") ?>" > Pour Vous </a>
                     </li>
                     <li class="nav-item" style="margin-left: 5%;padding: 3%">
-                        <a href="<?= base_url("PackController/myPack") ?>" > Mes pack </a>
+                        <a href="<?= base_url("PackController/myPack") ?>" >Vos Packs </a>
                     </li>
                     <li class="nav-item" style="margin-left: 5%;padding: 3%">
                         <a href="<?= base_url("UserController/code") ?>" > Code </a>
                     </li>
+                <?php }else{ ?>
+                    <li class="nav-item" style="margin-left: 7%;padding: 3%">
+                        <a href="<?= base_url("PackController/pack") ?>" > Dashboard </a>
+                    </li>
+                    <li class="nav-item" style="margin-left: 7%;padding: 3%">
+                        <a href="<?= base_url("PackController/myPack") ?>"  >Chiffres </a>
+                    </li>
+                    <li class="nav-item" style="margin-left: 7%;padding: 3%">
+                        <a href="<?= base_url("UserController/code") ?>" > Packs </a>
+                    </li>
+
+                    <li class="nav-item" style="margin-left: 7%;padding: 3%">
+                        <a href="<?= base_url("UserController/code") ?>" > Régimes </a>
+                    </li>
+                    <li class="nav-item" style="margin-left: 7%;padding: 3%">
+                        <a href="<?= base_url("AdminController/code") ?>" > Code </a>
+                    </li>
+
+
                 <?php } ?>
 
             </ul>
             <?php if($this->session->has_userdata("data")){ ?>
                 <div class="btn-group shadow-0" role="group">
-                    <a href="<?= base_url("UserController/profil") ?>" ><button type="button" class="btn btn-ligth" ><?= $this->session->userdata("data")["name"] ?></button></a>
+                    <a href="<?= base_url("UserController/profil") ?>" ><button type="button" class="btn btn-ligth" ><span class="badge bg-warning " style="margin-right: 5px"><?= "12000 AR"  ?></span><?= $this->session->userdata("data")["name"] ?></button></a>
                     <a href="<?= base_url("LoginController/logout") ?>" ><button type="button" class="btn btn-danger" >Se Deconnecter</button></a>
                 </div>
             <?php }else{ ?>
                 <div class="btn-group shadow-0" role="group">
                     <a href="<?= base_url("LoginController") ?>" ><button type="button" class="btn btn-ligth" >Se Connecter</button></a>
-                    <button type="button" class="btn btn-success" >S'inscrire</button>
+                    <a href="<?= base_url("UserController/createAccount") ?>" ><button type="button" class="btn btn-success" >S'inscrire</button></a>
                 </div>
             <?php } ?>
         </div>
