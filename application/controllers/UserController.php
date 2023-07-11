@@ -72,5 +72,9 @@ class UserController extends CI_Controller
       $this->load->view("pages/profil", $data);
     }
 
+    public function modificationProfil(){
+      $this->load->view("pages/modificationprofil");
+    }
+
 
 }

@@ -36,6 +36,7 @@
                         src="<?= base_url("assets/img/athlete-svgrepo-com.svg") ?>"
                         alt="Trendy Pants and Shoes"
                         class="img-fluid rounded-start"
+                        style="margin-top: 35%;margin-left: 10%;"
                     />
                 </div>
                 <div class="col-md-8">
@@ -56,6 +57,7 @@
                     <p class="card-text">
                         porte-monnaie: <?= $element["wallet"]; ?> Ar
                     </p>
+                    <a href="<?= base_url("UserController/modificationProfil") ?>" ><button type="button" class="btn btn-warning" >Modifier</button></a>
                 </div>
                 </div>
             </div>
