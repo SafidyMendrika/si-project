@@ -24,4 +24,6 @@ class GoalController extends CI_Controller
 
         }
     }
+
+    
 }

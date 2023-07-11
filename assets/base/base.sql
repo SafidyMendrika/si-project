@@ -40,6 +40,7 @@ CREATE TABLE code(
     is_used integer,
     status integer,
     id_user integer REFERENCES users(id_user)
+
 );
 
 CREATE TABLE menu(

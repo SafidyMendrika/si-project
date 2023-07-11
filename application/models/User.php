@@ -52,9 +52,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $q = $this->db->from("v_info_user_complet")->select("*")->where("id_user",$id_user)->get();
         
         return $q->result_array();
-      }
+      }  
 
+    public function insertWallet($id_user,$value){
+      $sql="insert into wallet values(default,%g,%g)";
+      $sql=sprintf($sql,$id_user,$value);
+      echo $sql;
+      $this->db->query($sql);
     }
+  }
 
     
 ?>  

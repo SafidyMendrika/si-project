@@ -42,15 +42,22 @@ class Activity extends  CI_Model
       $this->db->query($sql);
     }
 
-    public function update($label,$kcal){
-      $sql="update activity set kcal=%g";
-      $sql2="update activity set label=%s";
-      $sql=sprintf($sql,$kcal);
-      $sql2=sprintf($sql2,$label);
+    public function updateActivity($label,$kcal,$id_activity){
+      $sql="update activity set kcal=%g where id_activity=%g";
+      $sql2="update activity set label=%s where id_activity=%g";
+      $sql=sprintf($sql,$kcal,$id_activity);
+      $sql2=sprintf($sql2,$this->db->escape($label),$id_activity);
       echo $sql;
-      echo $sq2;
+      echo $sql2;
       $this->db->query($sql);
       $this->db->query($sql2);
+    }
+
+    public function getActivityById($id_activity){
+      $this->db->select("*")->from("activity")->where('id_activity',$id_activity);
+      $query=$this->db->get();
+      return $query->result_array();
+      
     }
 }
    
