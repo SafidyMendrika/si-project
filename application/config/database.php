@@ -74,15 +74,21 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> '',
+    /*'hostname' => 'postgresql-s4-project.alwaysdata.net', // local
+
+    'username' => 's4-project',// local
+
+    'password' => 'projetSIS4',// local
+
+    'database' => 's4-project_diettracker',// local*/
     'hostname' => 'localhost', // local
 
     'username' => 'postgres',// local
 
     'password' => 'Tahiry1849',// local
 
-
     'database' => 'diettracker',// local
+    'dsn'	=> '',
 
 	'dbdriver' => 'postgre',
 
