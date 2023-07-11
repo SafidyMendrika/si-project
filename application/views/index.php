@@ -38,7 +38,7 @@
                       <h5 class="mb-4">Donnez nous votre volonté et on vous donne le résultat</h5>
                       <a
                               class="btn btn-outline-light btn-lg m-2"
-                              href="<?= base_url("") ?>"
+                              href="<?= base_url("UserController/createAccount") ?>"
                               role="button"
                               rel="nofollow"
                               target="_blank"

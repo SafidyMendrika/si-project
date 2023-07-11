@@ -30,11 +30,6 @@ class Code extends CI_Model
         }
     }
 
-    function accept()
-    {
-        $sql="insert"
-    }
-
     function generateCode(){
         $debut = 0;
         $answer="";
