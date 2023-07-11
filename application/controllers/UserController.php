@@ -44,7 +44,6 @@ class UserController extends CI_Controller
       }
     }
 
-
     public function getGoal(){
       $this->load->model("User");
       $data=array();
