@@ -59,5 +59,12 @@ class Activity extends  CI_Model
       return $query->result_array();
       
     }
+
+    public function getAllActivity(){
+      $this->db->select("*")->from("activity");
+      $query=$this->db->get();
+      return $query->result_array();
+      
+    }
 }
    

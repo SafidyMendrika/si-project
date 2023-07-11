@@ -32,21 +32,25 @@
     <div class="container pt-4">
         <div class="row">
             <div class="col-md-6">
-            <?php foreach($code as $element){ ?>
+            <?php foreach($activity as $element){ ?>
                 <div style="box-shadow: 2px 2px 2px solid black;">
-                    <h3><?= $element['code']; ?></h3>
-                    <p>Valeur: <?= $element['value']; ?>Ar</p>
-                    <p>Statut: <?= $element['status']; ?></p>
+                    <h3><?= $element['label']; ?></h3>
+                    <p>dépense en Kcal: <?= $element['kcal']; ?>kcal</p>
+                    <img src="<?= base_url("assets/img/"); ?>/<?= $element['image_path']; ?>" alt="none" style="width:200px">
                 </div>
                 <br><br>
             <?php } ?>
             </div>
             <div class="col-md-6">
-                <h1>Générer un code</h1>
-                <form action="<?= base_url("AdminController/codeInsertion"); ?>" method="post">
-                    <label for="value">Valeur:</label> <input type="number" name="value" id="" min="1">
+                <h1>Insertion d'activité sportive</h1>
+                <form action="#" enctype="multipart/form-data">
+                    <label for="nom">Nom:</label> <input type="text" name="nom" id="">
                     <br><br>
-                    <button type="submit">Generate</button>
+                    <label for="kcal">Kcal:</label> <input type="number" name="kcal" id="" min="1">
+                    <br><br>
+                    <label for="image">Image:</label> <input type="file" name="image" id="">
+                    <br><br>
+                    <button type="submit">Valider</button>
                 </form>
             </div>
         </div>

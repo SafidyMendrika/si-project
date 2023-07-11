@@ -58,17 +58,20 @@
                     </li>
                 <?php }else{ ?>
                     <li class="nav-item" style="margin-left: 7%;padding: 3%">
-                        <a href="<?= base_url("PackController/pack") ?>" > Dashboard </a>
+                        <a href="<?= base_url("AdminController/Home") ?>" > Dashboard </a>
                     </li>
                     <li class="nav-item" style="margin-left: 7%;padding: 3%">
-                        <a href="<?= base_url("PackController/myPack") ?>"  >Chiffres </a>
+                        <a href="<?= base_url("AdminController/numbers") ?>"  >Chiffres </a>
                     </li>
                     <li class="nav-item" style="margin-left: 7%;padding: 3%">
-                        <a href="<?= base_url("UserController/code") ?>" > Packs </a>
+                        <a href="<?= base_url("AdminController/packs") ?>" > Packs </a>
                     </li>
 
                     <li class="nav-item" style="margin-left: 7%;padding: 3%">
-                        <a href="<?= base_url("UserController/code") ?>" > Régimes </a>
+                        <a href="<?= base_url("AdminController/regimes") ?>" > Régimes </a>
+                    </li>
+                    <li class="nav-item" style="margin-left: 7%;padding: 3%">
+                        <a href="<?= base_url("AdminController/activites") ?>" > Sports </a>
                     </li>
                     <li class="nav-item" style="margin-left: 7%;padding: 3%">
                         <a href="<?= base_url("AdminController/code") ?>" > Code </a>

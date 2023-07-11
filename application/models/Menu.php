@@ -32,4 +32,11 @@ class Menu extends CI_Model
         }
         return $list_pack;
     }
+
+    public function getAllMenu(){
+      $this->db->select("*")->from("menu");
+      $query=$this->db->get();
+      return $query->result_array();
+      
+    }
 }

@@ -149,4 +149,10 @@ class Pack extends CI_Model{
         return $result;
 
   }
+
+  public function getAllPack(){
+    $this->db->select("*")->from("pack");
+        $query=$this->db->get();
+        return $query->result_array();
+  }
 }

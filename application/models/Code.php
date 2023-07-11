@@ -10,7 +10,7 @@ class Code extends CI_Model
 
     function findALl()
     {
-        $q = $this->db->from("code")->select('*')->get();
+        $q = $this->db->from("code")->select('*')->order_by('id_code', 'desc')->get();
 
         return $q->result_array();
     }
@@ -38,7 +38,7 @@ class Code extends CI_Model
         $debut = 0;
         $answer="";
         while($debut < 9){
-            $rand= rand(0, 10);
+            $rand= rand(0, 9);
             $answer = $answer.$rand;
             $debut++;
         }

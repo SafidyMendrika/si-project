@@ -7,6 +7,9 @@ class AdminController extends  CI_Controller
         parent::__construct();
         $this->load->model("Admin");
         $this->load->model("Code");
+        $this->load->model("Activity");
+        $this->load->model("Menu");
+        $this->load->model("Pack");
     }
 
     function index()
@@ -42,16 +45,19 @@ class AdminController extends  CI_Controller
         }
  
     }
-    
+
     public function codeInsertion(){
         $code = $this->Code->generateCode();
-        $valeur= 24000;
+        $valeur= $_POST['value'];
         $this->Code->insertCodeBack($code, $valeur);
+
+        redirect($_SERVER["HTTP_REFERER"]);
     }
 
     function code()
     {
-        $this->load->view("pages/admin_code");
+        $data['code'] = $this->Code->findAll();
+        $this->load->view("pages/admin_code", $data);
     }
 
     public function loginAdmin(){
@@ -69,5 +75,28 @@ class AdminController extends  CI_Controller
       
               echo json_encode($data);
             }
-          }
+    }
+
+    public function numbers(){
+        $data['alluser'] = $this->Admin->getNbUser();
+        $data['perte'] = $this->Admin->getNbUserGoal(1);
+        $data['prise'] = $this->Admin->getNbUserGoal(2);
+        $this->load->view("pages/admin_numbers", $data);
+    }
+
+    public function packs(){
+        $data['pack'] = $this->Pack->getAllPack();
+        $this->load->view("pages/admin_packs", $data);
+    }
+
+    public function regimes(){
+        $data['menu'] = $this->Menu->getAllMenu();
+        $this->load->view("pages/admin_regimes", $data);
+    }
+
+    public function activites(){
+        $data['activity'] = $this->Activity->getAllActivity();
+        $this->load->view("pages/admin_activities", $data);
+    }
+    
 }

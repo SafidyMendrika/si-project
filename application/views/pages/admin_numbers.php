@@ -25,31 +25,27 @@
 
 <body style="padding: 5%">
 <?php $this->load->view("partials/loader") ?>
-<?php $this->load->view("partials/header") ?>
+
+    <?php $this->load->view("partials/header") ?>
 
 
 <main style="margin-top: 58px">
     <div class="container pt-4">
         <div class="row">
-            <div class="col-md-6">
-            <?php foreach($code as $element){ ?>
-                <div style="box-shadow: 2px 2px 2px solid black;">
-                    <h3><?= $element['code']; ?></h3>
-                    <p>Valeur: <?= $element['value']; ?>Ar</p>
-                    <p>Statut: <?= $element['status']; ?></p>
-                </div>
-                <br><br>
-            <?php } ?>
+            <div class="col-md-4">
+                <h4>Nombre d'utilisateur</h4>
+                    <p><?= $alluser; ?> personnes</p>
             </div>
-            <div class="col-md-6">
-                <h1>Générer un code</h1>
-                <form action="<?= base_url("AdminController/codeInsertion"); ?>" method="post">
-                    <label for="value">Valeur:</label> <input type="number" name="value" id="" min="1">
-                    <br><br>
-                    <button type="submit">Generate</button>
-                </form>
+            <div class="col-md-4">
+                <h4>Programme de perte de poids</h4>
+                    <p><?= $perte; ?> personnes</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Programme de prise de poids</h4>
+                    <p><?= $prise; ?> personnes</p>
             </div>
         </div>
+        <div class="col-md-2"></div>
     </div>
 
 </main>
