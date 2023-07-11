@@ -58,7 +58,7 @@
                     </li>
                 <?php }else{ ?>
                     <li class="nav-item" style="margin-left: 7%;padding: 3%">
-                        <a href="<?= base_url("PackController/pack") ?>" > Dashboard </a>
+                        <a href="<?= base_url("AdminController/home") ?>" > Dashboard </a>
                     </li>
                     <li class="nav-item" style="margin-left: 7%;padding: 3%">
                         <a href="<?= base_url("PackController/myPack") ?>"  >Chiffres </a>
