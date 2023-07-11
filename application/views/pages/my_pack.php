@@ -81,6 +81,7 @@ function countKcal($plats,$type)
 
 </main>
 <!-- MDB -->
+
 <script type="text/javascript" src="<?= base_url("assets/js/mdb.min.js") ?>"></script>
 <!-- Custom scripts -->
 <script type="text/javascript"></script>

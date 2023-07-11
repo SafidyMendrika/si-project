@@ -83,7 +83,7 @@
             </ul>
             <?php if($this->session->has_userdata("data")){ ?>
                 <div class="btn-group shadow-0" role="group">
-                    <a href="<?= base_url("UserController/profil") ?>" ><button type="button" class="btn btn-ligth" ><span class="badge bg-warning " style="margin-right: 5px"><?= $this->session->userdata("amount"); ?> Ar</span><?= $this->session->userdata("data")["name"] ?></button></a>
+                    <a href="<?= base_url("UserController/profil") ?>" ><button type="button" class="btn btn-ligth" ><span class="badge bg-warning " style="margin-right: 5px"><?= number_format($this->session->userdata("amount")) ?> Ar</span><?= $this->session->userdata("data")["name"] ?></button></a>
                     <a href="<?= base_url("LoginController/logout") ?>" ><button type="button" class="btn btn-danger" >Se Deconnecter</button></a>
                 </div>
             <?php }else{ ?>

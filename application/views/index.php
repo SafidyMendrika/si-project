@@ -58,6 +58,7 @@
       <!-- Background image -->
   </section>
 
+  <?php $this->load->view("partials/footer") ?>
     <!-- MDB -->
     <script type="text/javascript" src="<?= base_url("assets/js/mdb.min.js") ?>"></script>
     <!-- Custom scripts -->

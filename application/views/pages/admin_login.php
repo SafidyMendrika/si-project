@@ -37,13 +37,13 @@
                 <form class="row g-3 needs-validation" action="<?= base_url("LoginController/loginAdmin") ?>" id="form" method="post" >
                     <div class="col-md-5 input">
                         <div class="form-outline">
-                            <input type="text" class="form-control" name="mail" id="validationCustom01" value="" required />
+                            <input type="text" class="form-control" name="mail" id="validationCustom01" value="Mendrika@gmail.com" required />
                             <label for="validationCustom01" class="form-label">Mail</label>
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="form-outline">
-                            <input type="password" class="form-control" name="mdp" id="validationCustom02" value="" required />
+                            <input type="password" class="form-control" name="mdp" id="validationCustom02" value="azerty" required />
                             <label for="validationCustom02" class="form-label">Mot De Passe</label>
                         </div>
                     </div>

@@ -55,9 +55,9 @@ class AdminController extends  CI_Controller
             $this->load->model("User");
             $this->User->insertWallet($id_user,$value);
         }
-
         }
- 
+
+        redirect($_SERVER["HTTP_REFERER"]);
     }
 
     public function codeInsertion(){

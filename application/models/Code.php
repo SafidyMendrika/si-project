@@ -14,24 +14,26 @@ class Code extends CI_Model
 
         return $q->result_array();
     }
-    public function insertCode($code,$id_user){
+    public function insertCode($code,$id_user)
+    {
 
-        $this->db->select("*")->from("code")->where('code',$code);
-        $query=$this->db->get();
+        $this->db->select("*")->from("code")->where('code', $code);
+        $query = $this->db->get();
         $q = $query->result_array();
         echo $this->db->last_query();
-        if (count($q) == 0 ){
+        if (count($q) == 0) {
             return false;
-        }else{
-            $result=$q[0]['is_used'];
-            if($result==1){
+        } else {
+            $result = $q[0]['is_used'];
+            if ($result == 1) {
                 return false;
-            }else{
-                $sql="update code set status=10, id_user=$id_user where code=%s";
-                $sql= sprintf($sql,$this->db->escape($code));
-                $query=$this->db->query($sql);
+            } else {
+                $sql = "update code set status=10, id_user=$id_user where code=%s";
+                $sql = sprintf($sql, $this->db->escape($code));
+                $query = $this->db->query($sql);
             }
         }
+    }
 
 
 

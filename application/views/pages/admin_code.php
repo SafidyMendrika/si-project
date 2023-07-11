@@ -37,7 +37,7 @@
                     <h3><?= $element['code']; ?></h3>
                     <p>Valeur: <?= $element['value']; ?>Ar</p>
                     <p>Statut: <?= $element['status']; ?></p>
-                    <?php if($element['id_user'] != null){ ?>
+                    <?php if($element['id_user'] != null && $element["status"] != 20){ ?>
                         <button><a href="<?= base_url("AdminController/demandValidation"); ?>?action=1&id_code=<?= $element['id_code']; ?>">Accepter</a></button>
                         <button type="button" class="btn btn-danger"><a href="<?= base_url("AdminController/demandValidation"); ?>?action=0&id_code=<?= $element['id_code']; ?>">Refuser</a></button>
                     <?php } ?>

@@ -12,6 +12,13 @@ function countKcal($plats,$type)
 
     return $result;
 }
+
+function getRemise($prix,$pourc)
+{
+    $val = ($pourc * $prix ) / 100;
+
+    return $prix - $val;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -87,9 +94,21 @@ function countKcal($plats,$type)
                         >
                     </li>
                     <li class="nav-" role="presentation">
-                        <a href="" class="nav-link" style="padding: 0;display: flex;align-items: center;justify-content: space-around" id="buy" data-id-pack ="<?= $pack["id_pack"] ?>" data-nb-day ="<?= $pack["nb_day"] ?>" data-total-price ="<?= $pack["total_price"] ?>"><button class="btn btn-success"><i class="fas fa-money"></i> <?= number_format($pack["total_price"]) ?> Ar</button></a
+                        <a href="#" class="nav-link" style="padding: 0;display: flex;align-items: center;justify-content: space-around" id="buy" data-id-pack ="<?= $pack["id_pack"] ?>" data-nb-day ="<?= $pack["nb_day"] ?>" data-total-price ="<?= getRemise($pack["total_price"],15) ?>">
+                            <button class="btn btn-black disabled" style="color: #000"><i class="fas fa-money"></i> <?= number_format($pack["total_price"]) ?> Ar </button>
+                        </a >
+
+
+                    </li>
+                    <li class="nav-" role="presentation">
+                        <a href="" class="nav-link" style="padding: 0;display: flex;align-items: center;justify-content: space-around" id="buy" data-id-pack ="<?= $pack["id_pack"] ?>" data-nb-day ="<?= $pack["nb_day"] ?>" data-total-price ="<?= getRemise($pack["total_price"],15) ?>">
+                            <button class="btn btn-success"><i class="fas fa-money"></i> <?= number_format(getRemise($pack["total_price"],15)) ?> Ar (-15%)</button>
+                        </a
                         >
                     </li>
+
+
+
                 </ul>
                 <!-- Pills navs -->
             </div>
@@ -99,6 +118,8 @@ function countKcal($plats,$type)
 
 
 </main>
+<?php $this->load->view("partials/footer") ?>
+
 <!-- MDB -->
 <script type="text/javascript" src="<?= base_url("assets/js/mdb.min.js") ?>"></script>
 <!-- Custom scripts -->
@@ -120,7 +141,7 @@ function countKcal($plats,$type)
 
         xhr.addEventListener("load",(e)=>{
             console.log(e.target.responseText);
-            Snackbar.show({text : "Pack acheté avec succès",pos: 'bottom-left'});
+            alert("acheté avec succès");
         })
 
         form.set("id_pack",buyBtn.dataset.idPack);
