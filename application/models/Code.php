@@ -14,6 +14,7 @@ class Code extends CI_Model
 
         return $q->result_array();
     }
+
     public function insertCode($code){
         $this->db->select("*")->from("code")->where('code',$code);
         $query=$this->db->get();
@@ -31,6 +32,6 @@ class Code extends CI_Model
 
     function accept()
     {
-        
+        $sql="insert"
     }
 }
