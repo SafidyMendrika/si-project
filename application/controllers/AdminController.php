@@ -39,8 +39,8 @@ class AdminController extends  CI_Controller
 
     public function demandValidation(){
 
-        $id_code=$this->input->post('id_code');
-        $action=$this->input->post('action');
+        $id_code=$this->input->get('id_code');
+        $action=$this->input->get('action');
         // $id_code=5;
         // $action=1;
         if($action == 0){
@@ -113,4 +113,19 @@ class AdminController extends  CI_Controller
         $this->load->view("pages/admin_activities", $data);
     }
 
+    public function traitementRegime(){
+        $nom = $_POST['nom'];
+        $kcal = $_POST['kcal'];
+        $this->Menu->insertMenu($nom, $kcal);
+
+        redirect($_SERVER["HTTP_REFERER"]);
+    }
+    
+    public function traitementActivity(){
+        $nom = $_POST['nom'];
+        $kcal = $_POST['kcal'];
+        $this->Activity->insertActivity($nom, $kcal);
+
+        redirect($_SERVER["HTTP_REFERER"]);
+    }
 }

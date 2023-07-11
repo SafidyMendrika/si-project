@@ -43,12 +43,10 @@
             </div>
             <div class="col-md-6">
                 <h1>Insertion d'activité sportive</h1>
-                <form action="#" enctype="multipart/form-data">
+                <form action="<?= base_url("AdminController/traitementActivity"); ?>" method="post">
                     <label for="nom">Nom:</label> <input type="text" name="nom" id="">
                     <br><br>
                     <label for="kcal">Kcal:</label> <input type="number" name="kcal" id="" min="1">
-                    <br><br>
-                    <label for="image">Image:</label> <input type="file" name="image" id="">
                     <br><br>
                     <button type="submit">Valider</button>
                 </form>

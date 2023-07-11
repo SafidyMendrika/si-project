@@ -32,11 +32,15 @@
     <div class="container pt-4">
         <div class="row">
             <div class="col-md-6">
-            <?php foreach($code as $element){ ?>
+            <?php foreach($code as $element){?>
                 <div style="box-shadow: 2px 2px 2px solid black;">
                     <h3><?= $element['code']; ?></h3>
                     <p>Valeur: <?= $element['value']; ?>Ar</p>
                     <p>Statut: <?= $element['status']; ?></p>
+                    <?php if($element['id_user'] != null){ ?>
+                        <button><a href="<?= base_url("AdminController/demandValidation"); ?>?action=1&id_code=<?= $element['id_code']; ?>">Accepter</a></button>
+                        <button type="button" class="btn btn-danger"><a href="<?= base_url("AdminController/demandValidation"); ?>?action=0&id_code=<?= $element['id_code']; ?>">Refuser</a></button>
+                    <?php } ?>
                 </div>
                 <br><br>
             <?php } ?>
