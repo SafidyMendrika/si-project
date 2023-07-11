@@ -37,7 +37,7 @@ CREATE TABLE code(
     id_code SERIAL PRIMARY KEY,
     code VARCHAR(50),
     value double precision,
-    is_used integer,
+    is_used integer,        
     status integer,
     id_user integer REFERENCES users(id_user)
 

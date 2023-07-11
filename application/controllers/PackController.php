@@ -61,6 +61,12 @@ class PackController extends CI_Controller
         //$this->load->view("pages/my_pack");
 
     }
+    function myPack(){
+        $id_user = $this->session->userdata("data")["id"];
+
+        $data["packs"] = $this->Pack->packOf($id_user);
+        $this->load->view("pages/my_pack",$data);
+    }
 }
 
 ?>

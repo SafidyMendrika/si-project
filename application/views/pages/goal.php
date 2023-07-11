@@ -31,7 +31,7 @@
         <div class="card-body">
             <h5 class="card-title">Prise de Masse</h5>
             <p class="card-text">Vous vous sentez fin et veut prendre un peu de masse ? Ce programme et fait pour Vous , Découvrez notre formule spéciale prise de masse</p>
-            <a href="#!" class="btn btn-primary"  style="margin-top: 2%">Oui , c'est moi</a>
+            <a href="<?= base_url("GoalController/insertGoal/2") ?>" class="btn btn-primary"  style="margin-top: 2%">Oui , c'est moi</a>
         </div>
     </div>
     <div class="card" style="margin: 2%;width: 450px;height: 500px">
@@ -39,7 +39,7 @@
         <div class="card-body">
             <h5 class="card-title">Mincir</h5>
             <p class="card-text">Vous pouvez choisir la masse que vous voulez enlever tout en pratiquant notre programme sportif spécialement fait pour Vous</p>
-            <a href="#!" class="btn btn-primary" style="margin-top: 2%">Oui , c'est moi</a>
+            <a href="<?= base_url("GoalController/insertGoal/1") ?>" class="btn btn-primary" style="margin-top: 2%">Oui , c'est moi</a>
         </div>
     </div>
 
