@@ -5,13 +5,20 @@ class AdminController extends  CI_Controller
     function __construct()
     {
         parent::__construct();
+
+        if ($this->session->has_userdata("data") && $this->session->userdata("data")["type"] =="a"){
+
+        }else{
+            redirect(base_url());
+        }
+
         $this->load->model("Admin");
         $this->load->model("Code");
     }
 
     function index()
     {
-        $this->load->view("pages/admin_login");
+        redirect(base_url("AdminController/home"));
     }
     function home()
     {
@@ -61,20 +68,4 @@ class AdminController extends  CI_Controller
         $this->load->view("pages/admin_code");
     }
 
-    public function loginAdmin(){
-    
-            $data=array();
-            $mail=$this->input->post('mail');
-            $mdp=$this->input->post('mdp');
-      
-            if($mail !=null && $mdp !=null){
-              $data =$this->User->loginAdmin($mail,$mdp);
-                //$data["type"] = "u";
-                $data["type"] = "a"; // admin
-      
-              $this->session->set_userdata("data",$data);
-      
-              echo json_encode($data);
-            }
-          }
 }

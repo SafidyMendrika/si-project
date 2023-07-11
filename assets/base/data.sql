@@ -87,3 +87,8 @@ INSERT INTO pack_activity(id_pack, id_activity) VALUES
 (4, 2),
 (5, 8),
 (6, 5);
+
+INSERT INTO subscription VALUES 
+(default,'SILVER',20000,10),
+(default,'GOLD',25000,12),
+(default,'DIAMOND',30000,20);

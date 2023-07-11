@@ -43,7 +43,7 @@ class Admin extends  CI_Model
         $sql="select * from users where mail=%s and mdp=%s and is_admin=1";
         $sql = sprintf($sql,$this->db->escape($mail),$this->db->escape(md5($mdp)));
         $query=$this->db->query($sql);
-        if(count($query)==0){
+        if($query->num_rows()==0){
           return false ;
         }else{
           $row=$query->row_array();

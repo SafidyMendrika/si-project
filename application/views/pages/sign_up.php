@@ -63,7 +63,7 @@
                 </div>
             </form>
             <?php }else{ ?>
-                <form action="<?= base_url("UserController/insertDetals") ?>" method="post" class="row g-3 needs-validation" id="form" novalidate>
+                    <form action="<?= base_url("UserController/insertDetals") ?>" method="post" class="row g-3 needs-validation" id="form" novalidate>
                     <div class="col-md-5 ">
                         <h2>Remplissez les details</h2>
                     </div>

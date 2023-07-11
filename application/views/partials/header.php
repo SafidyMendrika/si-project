@@ -56,7 +56,7 @@
                     <li class="nav-item" style="margin-left: 5%;padding: 3%">
                         <a href="<?= base_url("UserController/code") ?>" > Code </a>
                     </li>
-                <?php }else{ ?>
+                <?php }else if ($this->session->has_userdata("data") && $this->session->userdata("data")["type"] == "a"){ ?>
                     <li class="nav-item" style="margin-left: 7%;padding: 3%">
                         <a href="<?= base_url("AdminController/home") ?>" > Dashboard </a>
                     </li>

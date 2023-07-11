@@ -30,6 +30,8 @@ class GoalController extends CI_Controller
         $idUser = $this->session->userdata("data")["id"];
 
         $this->User->insertGoal($idUser,$idGoal);
+
+        redirect(base_url());
     }
 
     
