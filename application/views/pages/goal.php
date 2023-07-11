@@ -46,8 +46,8 @@
     <div class="card" style="margin: 2%;width: 450px;height: 500px">
         <img src="<?= base_url("assets/img/banane.png") ?>" style="height: 55%" class="card-img-top" alt="Fissure in Sandstone"/>
         <div class="card-body">
-            <h5 class="card-title">Guest</h5>
-            <p class="card-text">Si vous voulez simpleent vous régaler avec nos plats délicieuses et BIO</p>
+            <h5 class="card-title">IMC quester</h5>
+            <p class="card-text">Vous cherchez le corps parfait par rapport à votre poids</p>
             <a href="#!" class="btn btn-primary"  style="margin-top: 2%">Oui , c'est moi</a>
         </div>
     </div>
