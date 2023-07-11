@@ -51,7 +51,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         if ($q->num_rows() == 0){
           return false;
         }
-        return $q->result_array()[0];
+        $o =  $q->result_array();
+        return $o[0];
       }
 
       public function getInfoUser($id_user){
