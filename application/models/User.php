@@ -94,11 +94,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       }  
 
     public function insertWallet($id_user,$value){
-      $sql="insert into wallet values(default,%g,%g)";
-      $sql=sprintf($sql,$id_user,$value);
+      $price=$this->Wallet->getAmount($id_user);
+      $this->Wallet->setAmount($id_user,$price+$value);
+      // $sql="insert into wallet values(default,%g,%g)";
+      // $sql=sprintf($sql,$id_user,$value);
+      // echo $sql;
+      // $this->db->query($sql);
+    }
+
+    public function insertUserSubscription($id_user,$id_subscription){
+      $sql="insert into user_subscription values(%g,%g)";
+      $sql=sprintf($sql,$id_user,$id_subscription);
       echo $sql;
       $this->db->query($sql);
     }
+
 
     public function getIMC($poids, $taille){
       return ($poids)/($taille * $taille);

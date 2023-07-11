@@ -15,6 +15,7 @@ class Code extends CI_Model
         return $q->result_array();
     }
     public function insertCode($code,$id_user){
+
         $this->db->select("*")->from("code")->where('code',$code);
         $query=$this->db->get();
         $q = $query->result_array();
@@ -36,7 +37,7 @@ class Code extends CI_Model
 
     function accept($id_code)
     {
-        
+        $sql="insert"
     }
     function deny($id_code)
     {

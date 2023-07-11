@@ -9,6 +9,7 @@ class UserController extends CI_Controller
         $this->load->model('User');
         $this->load->model('Code');
         $this->load->model('Wallet');
+        $this->load->model('Subscription');
 
     }
     function index()
@@ -115,6 +116,27 @@ class UserController extends CI_Controller
     {
         $data["codes"] = $this->Code->findAll();
         $this->load->view("pages/code",$data);
+    }
+
+    public function insertGold(){
+
+      $id_user=$this->session->userdata("data")["id"];
+      $id_subscription=$this->input->get("id_subscription");
+      $price=$this->Subscription->getSubscriptionById($id_subscription);
+
+      try {
+        $amount = $this->Wallet->getAmount($id_user);
+        if($amount < $price){
+          echo json_encode(array(
+            "error" =>"solde insufisant"
+        ));
+        return;
+        }
+        $this->Subscription->insertUserSubscription($id_user,$id_subscription);
+
+      }catch (Exception $e){
+        echo "false";
+    }
     }
 
 
