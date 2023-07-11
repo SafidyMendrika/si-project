@@ -49,41 +49,37 @@
     <!-- Navbar -->
 </header>
 
-<main style="margin-top: 58px">
-    <div class="container pt-4">
-        <div class="row">
-            <div class="col-md-4">
-                <h4>Nombre d'utilisateur</h4>
-                    <p>22 personnes</p>
-            </div>
-            <div class="col-md-4">
-                <h4>Programme de perte de poids</h4>
-                    <p>10 personnes</p>
-            </div>
-            <div class="col-md-4">
-                <h4>Programme de prise de poids</h4>
-                    <p>10 personnes</p>
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Nombre d'utilisateur</h4>
+                <p>22 personnes</p>
+        </div>
+        <div class="col-md-4">
+            <h4>Programme de perte de poids</h4>
+                <p>10 personnes</p>
+        </div>
+        <div class="col-md-4">
+            <h4>Programme de prise de poids</h4>
+                <p>10 personnes</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <div class="chart" style="width: 500px;">
+                <h4>Nombre de transactions par mois</h4>
+                <canvas id="myChart1"></canvas>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-5">
-                <div class="chart" style="width: 500px;">
-                <h4>Nombre de transactions par mois</h4>
-                    <canvas id="myChart1"></canvas>
-                </div>
-            </div>
-            <div class="col-md-2"></div>
-            <div class="col-md-5">
-                <div class="chart" style="width: 500px;">
+        <div class="col-md-2"></div>
+        <div class="col-md-5">
+            <div class="chart" style="width: 500px;">
                 <h4>Chiffre d'affaire par mois</h4>
-                    <canvas id="myChart2"></canvas>
-                </div>
+                <canvas id="myChart2"></canvas>
             </div>
         </div>
     </div>
-    
-            
-</main>
+
 
 <script src="<?= base_url("assets/js/chart-js/node_modules/chart.js/dist/chart.umd.js") ?>"></script>
 <script>
