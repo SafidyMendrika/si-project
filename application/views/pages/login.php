@@ -30,52 +30,10 @@
 
 
 <main style="margin-top: 4%">
-    <div class="container" >
-        <!-- Carousel wrapper -->
-            <div id="carouselMaterialStyle" class="carousel slide carousel-fade left" data-mdb-ride="carousel">
-                <!-- Indicators -->
-                <div class="carousel-indicators">
-                    <button type="button" data-mdb-target="#carouselMaterialStyle" data-mdb-slide-to="0" class="active" aria-current="true"
-                            aria-label="Slide 1"></button>
-                    <button type="button" data-mdb-target="#carouselMaterialStyle" data-mdb-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-mdb-target="#carouselMaterialStyle" data-mdb-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-
-                <!-- Inner -->
-                <div class="carousel-inner rounded-5 shadow-4-strong">
-                    <!-- Single item -->
-                    <div class="carousel-item active">
-                        <img src="<?= base_url("assets/img/banane.png") ?>" class="d-block w-100"
-                             alt="Sunset Over the City" />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Mangez Sainement</h5>
-                            <p>On vous accompagne pour cela</p>
-                        </div>
-                    </div>
-                    <!-- Single item -->
-                    <div class="carousel-item active">
-                        <img src="<?= base_url("assets/img/fruit.jpg") ?>" class="d-block w-100 h-100"
-                             alt="Sunset Over the City" />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Mangez Sainement</h5>
-                            <p>On vous accompagne pour cela</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Inner -->
-
-                <!-- Controls -->
-                <button class="carousel-control-prev" type="button" data-mdb-target="#carouselMaterialStyle" data-mdb-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-mdb-target="#carouselMaterialStyle" data-mdb-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-
-        <!-- Carousel wrapper -->
+    <div class="container" style="border-radius: 5px" >
+        <div class="left d-flex justify-content-around align-items-center" >
+            <img src="<?= base_url("assets/img/diet-tracker.png") ?>" class="w-75 " style="border-radius: 50%"></img>
+        </div>
         <div class="right" >
             <div class="head" ><h2>Connectez vous </h2></div>
             <section class="form">
@@ -84,14 +42,12 @@
                         <div class="form-outline">
                             <input type="text" class="form-control" name="mail" id="validationCustom01" value="" required />
                             <label for="validationCustom01" class="form-label">Mail</label>
-                            <div class="valid-feedback">ok !</div>
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="form-outline">
                             <input type="password" class="form-control" name="mdp" id="validationCustom02" value="" required />
                             <label for="validationCustom02" class="form-label">Mot De Passe</label>
-                            <div class="valid-feedback">ok ! </div>
                         </div>
                     </div>
                     <div class="col-md-5 col-xs-5">

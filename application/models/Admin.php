@@ -12,14 +12,26 @@ class Admin extends  CI_Model
         $query=$this->db->get();
         return $query->result_array();
     }
-    public function demandValidation($id_code){
-        $sql="update code set status=20 where id_code=%g";
-        $sql2="update code set is_used=1 where id_code=%g";
-        $sql=sprintf($sql,$id_code);
-        $sql2=sprintf($sql,$id_code);
-        $this->db->query($sql);
-        $this->db->query($sql2);
-    }
+    
+    public function demandValidation($id_code,$action){
+      if($action==1){
+          $sql="update code set status=20 where id_code=%g";
+          $sql2="update code set is_used=1 where id_code=%g";
+          $sql=sprintf($sql,$id_code);
+          $sql2=sprintf($sql2,$id_code);
+          $this->db->query($sql);
+          $this->db->query($sql2); 
+
+      }else{ 
+          $sql="update code set status=0 where id_code=%g";
+          $sql2="update code set is_user=0 where id_code=%g";
+          $sql=sprintf($sql,$id_code);
+          $sql2=sprintf($sql2,$id_code);
+          $this->db->query($sql);
+          $this->db->query($sql2);  
+      }
+
+  }
 
     public function selectValueCode($id_code){
         $this->db->select("*")->from("code")->where('id_code',$id_code);
@@ -31,7 +43,7 @@ class Admin extends  CI_Model
         $sql="select * from users where mail=%s and mdp=%s and is_admin=1";
         $sql = sprintf($sql,$this->db->escape($mail),$this->db->escape(md5($mdp)));
         $query=$this->db->query($sql);
-        if(count($query)==0){
+        if($query->num_rows()==0){
           return false ;
         }else{
           $row=$query->row_array();

@@ -84,11 +84,24 @@ CREATE TABLE pack_activity(
     id_pack_activity SERIAL PRIMARY KEY,
     id_pack integer REFERENCES pack(id_pack),
     id_activity integer REFERENCES activity(id_activity)
-
+ 
 );
 CREATE TABLE transaction(
     id SERIAL PRIMARY KEY,
     label VARCHAR(100),
     amount double precision,
+    date date default current_date
+);
+
+CREATE TABLE subscription(
+    id_subscription SERIAL PRIMARY KEY,
+    label VARCHAR(100),
+    price double precision,
+    remise double precision
+);
+
+CREATE TABLE user_subscription(
+    id_user INTEGER REFERENCES users(id_user),
+    id_subscription INTEGER REFERENCES subscription(id_subscription),
     date date default current_date
 );

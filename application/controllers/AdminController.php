@@ -5,6 +5,13 @@ class AdminController extends  CI_Controller
     function __construct()
     {
         parent::__construct();
+
+        if ($this->session->has_userdata("data") && $this->session->userdata("data")["type"] =="a"){
+
+        }else{
+            redirect(base_url());
+        }
+
         $this->load->model("Admin");
         $this->load->model("Code");
         $this->load->model("Activity");
@@ -14,7 +21,7 @@ class AdminController extends  CI_Controller
 
     function index()
     {
-        $this->load->view("pages/admin_login");
+        redirect(base_url("AdminController/home"));
     }
     function home()
     {
@@ -33,8 +40,13 @@ class AdminController extends  CI_Controller
     public function demandValidation(){
 
         $id_code=$this->input->post('id_code');
-        //$id_code=2;
-        $this->Admin->demandValidation($id_code);
+        $action=$this->input->post('action');
+        // $id_code=5;
+        // $action=1;
+        if($action == 0){
+            $this->Admin->demandValidation($id_code,$action);
+        }else{
+        $this->Admin->demandValidation($id_code,$action);
         $data=array();
         $data["result"]=$this->Admin->selectValueCode($id_code);
         foreach($data["result"] as $test){
@@ -42,6 +54,8 @@ class AdminController extends  CI_Controller
             $value=$test['value'];
             $this->load->model("User");
             $this->User->insertWallet($id_user,$value);
+        }
+
         }
  
     }
@@ -98,5 +112,5 @@ class AdminController extends  CI_Controller
         $data['activity'] = $this->Activity->getAllActivity();
         $this->load->view("pages/admin_activities", $data);
     }
-    
+
 }
